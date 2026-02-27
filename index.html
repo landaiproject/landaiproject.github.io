@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS CAFE — Sistem Kasir</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            /* Background dasar hitam pekat */
+            background: #121212; 
+            font-family: 'Segoe UI', Inter, sans-serif;
+        }
+
+        /* ===== IFRAME ===== */
+        #app-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* Memberikan background putih agar saat iframe meload tidak terlihat hitam jika transparan */
+            background-color: #ffffff; 
+        }
+
+        /* ===== OVERLAY ===== */
+        #overlay {
+            position: absolute;
+            inset: 0;
+            /* Tema Hitam elegan ala Cafe modern */
+            background: linear-gradient(135deg, #1a1a1a, #000000, #111111);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: opacity 0.7s ease;
+        }
+
+        #overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .ov-logo {
+            font-size: 3.5rem;
+            line-height: 1;
+            /* Memberikan efek glow tipis warna kuning */
+            text-shadow: 0 0 15px rgba(255, 214, 0, 0.3);
+        }
+
+        .ov-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            /* Warna Kuning Khas POS CAFE */
+            color: #FFD600; 
+            text-align: center;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .ov-sub {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-wrap {
+            width: 220px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 999px;
+            /* Warna Kuning Khas POS CAFE */
+            background: linear-gradient(90deg, #F9A826, #FFD600);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(255, 214, 0, 0.5);
+        }
+
+        .ov-status {
+            font-size: 0.8rem;
+            color: #FFD600;
+            opacity: 0.8;
+            text-align: center;
+            min-height: 18px;
+            font-weight: 500;
+        }
+
+        /* ===== ERROR STATE ===== */
+        #error-box {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 214, 0, 0.05);
+            border: 1px solid rgba(255, 214, 0, 0.2);
+            border-radius: 16px;
+            padding: 24px 28px;
+            text-align: center;
+            max-width: 320px;
+        }
+
+        .err-icon {
+            font-size: 2.2rem;
+        }
+
+        .err-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+
+        .err-msg {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .btn-retry,
+        .btn-open {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-retry:hover,
+        .btn-open:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-retry {
+            /* Tombol Kuning tulisan hitam */
+            background: #FFD600;
+            color: #000000;
+        }
+
+        .btn-retry:hover {
+            background: #e6c100;
+            box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+        }
+
+        .btn-open {
+            background: transparent;
+            color: #FFD600;
+            border: 1px solid #FFD600;
+        }
+        
+        .btn-open:hover {
+            background: rgba(255, 214, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Overlay Loading -->
+    <div id="overlay">
+        <div class="ov-logo">☕</div>
+        <div>
+            <div class="ov-title">POS CAFE</div>
+            <div class="ov-sub">Manajemen Kasir - Stok - Laporan</div>
+        </div>
+        <div class="progress-wrap">
+            <div class="progress-bar" id="prog"></div>
+        </div>
+        <div class="ov-status" id="status-text">Menyiapkan sistem kasir...</div>
+
+        <!-- Error box (tersembunyi, muncul jika timeout 18 detik) -->
+        <div id="error-box">
+            <div class="err-icon">⚠️</div>
+            <div class="err-title">Koneksi Server Terputus</div>
+            <div class="err-msg">Aplikasi kasir lambat merespon.<br>Silakan coba lagi atau buka langsung di tab baru.
+            </div>
+            <div class="btn-row">
+                <button class="btn-retry" onclick="retryLoad()">🔄 Coba Lagi</button>
+                <button class="btn-open" onclick="openDirect()">↗ Buka Tab Baru</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Iframe GAS (URL Diambil dari Screenshot Anda) -->
+    <iframe id="app-frame"
+        src="https://script.google.com/macros/s/AKfycbwb56coaaz-3lkP0H4ABTDBx_C6JnJUHr-jOe0vJnbKhm42X1zIvHCKKPjKiRAu9PJVmw/exec"
+        allow="geolocation; microphone; camera; clipboard-read; clipboard-write; encrypted-media;"></iframe>
+
+    <script>
+        // URL GAS Tujuan yang diambil dari Screenshot
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwb56coaaz-3lkP0H4ABTDBx_C6JnJUHr-jOe0vJnbKhm42X1zIvHCKKPjKiRAu9PJVmw/exec";
+
+        const iframe = document.getElementById('app-frame');
+        const overlay = document.getElementById('overlay');
+        const prog = document.getElementById('prog');
+        const statusTxt = document.getElementById('status-text');
+        const errorBox = document.getElementById('error-box');
+
+        let loaded = false;
+        let progVal = 0;
+        let progTimer, errorTimer;
+
+        // Simulasi progress bar — melambat di 92%, tunggu onload
+        function startProgress() {
+            progVal = 0;
+            clearInterval(progTimer);
+            progTimer = setInterval(() => {
+                if (loaded) { clearInterval(progTimer); return; }
+                const inc = progVal < 40 ? 3 : progVal < 70 ? 1.5 : progVal < 92 ? 0.4 : 0;
+                progVal = Math.min(progVal + inc, 92);
+                prog.style.width = progVal + '%';
+            }, 200);
+        }
+
+        // Update teks status berdasarkan progres
+        function updateStatusMsg() {
+            if (loaded) return;
+            if (progVal < 30) statusTxt.textContent = 'Menyiapkan sistem kasir...';
+            else if (progVal < 60) statusTxt.textContent = 'Menghubungkan ke database...';
+            else if (progVal < 85) statusTxt.textContent = 'Memuat daftar menu...';
+            else statusTxt.textContent = 'Hampir siap...';
+        }
+        setInterval(updateStatusMsg, 800);
+
+        // Sembunyikan overlay setelah iframe loaded
+        function hideOverlay() {
+            loaded = true;
+            clearInterval(progTimer);
+            clearTimeout(errorTimer);
+            prog.style.width = '100%';
+            statusTxt.textContent = 'Aplikasi Siap!';
+            setTimeout(() => {
+                overlay.classList.add('fade-out');
+                setTimeout(() => { overlay.style.display = 'none'; }, 700);
+            }, 400);
+        }
+
+        // Tampilkan error jika timeout 18 detik
+        function showError() {
+            if (loaded) return;
+            clearInterval(progTimer);
+            statusTxt.style.display = 'none';
+            prog.parentElement.style.display = 'none';
+            errorBox.style.display = 'flex';
+        }
+
+        // Tombol Coba Lagi — reload iframe dengan cache buster
+        function retryLoad() {
+            errorBox.style.display = 'none';
+            statusTxt.style.display = 'block';
+            prog.parentElement.style.display = 'block';
+            statusTxt.textContent = 'Mencoba menghubungkan kembali...';
+            loaded = false;
+            // Reload iframe
+            iframe.src = GAS_URL + '?_t=' + Date.now();
+            startProgress();
+            errorTimer = setTimeout(showError, 18000);
+        }
+
+        // Tombol Buka Langsung di tab baru
+        function openDirect() {
+            window.open(GAS_URL, '_blank');
+        }
+
+        // Init
+        iframe.onload = hideOverlay;
+        // Waktu tunggu diset 18 detik, jika internet lambat bisa dinaikkan ke 25000 (25 detik)
+        errorTimer = setTimeout(showError, 18000); 
+        startProgress();
+    </script>
+</body>
+
+</html>
