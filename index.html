@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jasa Buatkan Web Member UMKM — Sistem Poin Digital Modern</title>
-    <meta name="description" content="Jasa deploy web sistem member poin digital untuk UMKM. Dashboard admin, kartu digital QR, redeem hadiah. Langsung jadi, harga terjangkau.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Jasa deploy web sistem member poin digital untuk UMKM. Dashboard admin, kartu digital QR, redeem hadiah. Langsung jadi, harga terjangkau.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
             --indigo: #6366f1;
@@ -20,13 +29,16 @@
             --emerald: #10b981;
             --rose: #f43f5e;
             --bg: #060b18;
-            --surface: rgba(255,255,255,0.04);
-            --border: rgba(255,255,255,0.09);
-            --text-muted: rgba(255,255,255,0.55);
-            --text-dim: rgba(255,255,255,0.35);
+            --surface: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.09);
+            --text-muted: rgba(255, 255, 255, 0.55);
+            --text-dim: rgba(255, 255, 255, 0.35);
         }
 
-        html { scroll-behavior: smooth; font-size: 15px; }
+        html {
+            scroll-behavior: smooth;
+            font-size: 15px;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -43,292 +55,557 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .amber-text {
             background: linear-gradient(90deg, var(--amber), var(--orange));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .sec { padding: 80px 20px; }
-        .sec-inner { max-width: 1000px; margin: 0 auto; }
-        .sec-label {
-            font-size: 0.68rem; font-weight: 800; letter-spacing: 0.18em;
-            text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+
+        .sec {
+            padding: 80px 20px;
         }
+
+        .sec-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sec-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 10px;
+        }
+
         .sec-title {
             font-size: clamp(1.6rem, 4vw, 2.4rem);
-            font-weight: 900; line-height: 1.2; margin-bottom: 14px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 14px;
         }
+
         .sec-desc {
-            font-size: 0.95rem; color: var(--text-muted);
-            line-height: 1.75; max-width: 680px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            max-width: 680px;
         }
 
         /* ─── TOPBAR ─── */
         #topbar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(6,11,24,0.88);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(6, 11, 24, 0.88);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
             padding: 0 20px;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             height: 58px;
             transition: background 0.3s;
         }
+
         .topbar-brand {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 1rem; font-weight: 900; color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #fff;
         }
+
         .topbar-brand .logo-icon {
-            width: 34px; height: 34px;
+            width: 34px;
+            height: 34px;
             background: linear-gradient(135deg, var(--indigo), var(--violet));
             border-radius: 9px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1rem;
         }
-        .topbar-nav { display: flex; align-items: center; gap: 6px; }
-        .topbar-nav a {
-            color: var(--text-muted); text-decoration: none;
-            font-size: 0.82rem; font-weight: 600; padding: 6px 12px;
-            border-radius: 8px; transition: color 0.2s, background 0.2s;
+
+        .topbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .topbar-nav a:hover { color: #fff; background: var(--surface); }
+
+        .topbar-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .topbar-nav a:hover {
+            color: #fff;
+            background: var(--surface);
+        }
+
         .btn-nav-cta {
             background: linear-gradient(135deg, var(--indigo), var(--violet));
-            color: #fff !important; border-radius: 9px !important;
+            color: #fff !important;
+            border-radius: 9px !important;
             padding: 8px 18px !important;
             font-weight: 700 !important;
         }
-        .btn-nav-cta:hover { opacity: 0.88; background: var(--indigo-dark) !important; }
+
+        .btn-nav-cta:hover {
+            opacity: 0.88;
+            background: var(--indigo-dark) !important;
+        }
+
         @media(max-width:600px) {
-            .topbar-nav a:not(.btn-nav-cta) { display: none; }
+            .topbar-nav a:not(.btn-nav-cta) {
+                display: none;
+            }
         }
 
         /* ─── HERO ─── */
         #hero {
             min-height: 100vh;
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
             padding: 100px 20px 70px;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+
         .hero-glow {
-            position: absolute; top: -200px; left: 50%;
+            position: absolute;
+            top: -200px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 900px; height: 600px;
-            background: radial-gradient(ellipse at center, rgba(99,102,241,0.22) 0%, transparent 70%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.22) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .hero-glow-2 {
-            position: absolute; bottom: -100px; right: -200px;
-            width: 600px; height: 500px;
-            background: radial-gradient(ellipse at center, rgba(139,92,246,0.15) 0%, transparent 70%);
+            position: absolute;
+            bottom: -100px;
+            right: -200px;
+            width: 600px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .hero-inner {
-            max-width: 1000px; margin: 0 auto; width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
+
         @media(max-width:768px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
         }
+
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(99,102,241,0.15);
-            border: 1px solid rgba(99,102,241,0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.35);
             border-radius: 999px;
-            padding: 7px 16px; margin-bottom: 22px;
-            font-size: 0.73rem; font-weight: 700; color: #a5b4fc;
+            padding: 7px 16px;
+            margin-bottom: 22px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: #a5b4fc;
         }
+
         .hero-badge .dot {
-            width: 7px; height: 7px; border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
             background: #22c55e;
             box-shadow: 0 0 6px #22c55e;
             animation: pulse-dot 1.8s ease-in-out infinite;
         }
+
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
+
         .hero-title {
             font-size: clamp(2rem, 5.5vw, 3.4rem);
-            font-weight: 900; line-height: 1.15; margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
         }
+
         .hero-sub {
             font-size: clamp(0.9rem, 2vw, 1.05rem);
-            color: var(--text-muted); line-height: 1.75; margin-bottom: 32px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
         }
+
         .hero-cta-row {
-            display: flex; gap: 12px; flex-wrap: wrap;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-        @media(max-width:768px) { .hero-cta-row { justify-content: center; } }
+
+        @media(max-width:768px) {
+            .hero-cta-row {
+                justify-content: center;
+            }
+        }
+
         .btn-primary {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: linear-gradient(135deg, var(--indigo), var(--violet));
-            color: #fff; padding: 14px 26px; border-radius: 13px;
-            font-size: 0.92rem; font-weight: 800; text-decoration: none;
-            box-shadow: 0 8px 28px rgba(99,102,241,0.35);
+            color: #fff;
+            padding: 14px 26px;
+            border-radius: 13px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(99, 102, 241, 0.35);
             transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-            border: none; cursor: pointer;
+            border: none;
+            cursor: pointer;
         }
+
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(99,102,241,0.45);
+            box-shadow: 0 12px 36px rgba(99, 102, 241, 0.45);
         }
+
         .btn-secondary {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.07);
-            border: 1.5px solid rgba(255,255,255,0.15);
-            color: #fff; padding: 14px 26px; border-radius: 13px;
-            font-size: 0.92rem; font-weight: 700; text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 14px 26px;
+            border-radius: 13px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
             transition: background 0.2s, border-color 0.2s, transform 0.2s;
             cursor: pointer;
         }
+
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
+
         .btn-wa {
             background: linear-gradient(135deg, #25d366, #128c7e) !important;
-            box-shadow: 0 8px 28px rgba(37,211,102,0.3) !important;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.3) !important;
         }
-        .btn-wa:hover { box-shadow: 0 12px 36px rgba(37,211,102,0.45) !important; }
+
+        .btn-wa:hover {
+            box-shadow: 0 12px 36px rgba(37, 211, 102, 0.45) !important;
+        }
 
         /* Hero visual/mockup */
         .hero-visual {
             position: relative;
         }
-        @media(max-width:768px) { .hero-visual { display: none; } }
+
+        @media(max-width:768px) {
+            .hero-visual {
+                display: none;
+            }
+        }
+
         .mockup-window {
             background: #0d1117;
-            border: 1.5px solid rgba(255,255,255,0.1);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
         }
+
         .mockup-bar {
             background: #161b22;
             padding: 10px 14px;
-            display: flex; align-items: center; gap: 7px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
-        .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .d-red { background: #ff5f57; }
-        .d-yellow { background: #ffbd2e; }
-        .d-green { background: #28ca40; }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .d-red {
+            background: #ff5f57;
+        }
+
+        .d-yellow {
+            background: #ffbd2e;
+        }
+
+        .d-green {
+            background: #28ca40;
+        }
+
         .mockup-url {
             margin-left: 8px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 6px; padding: 4px 10px;
-            font-size: 0.65rem; color: rgba(255,255,255,0.4);
-            flex: 1; font-family: monospace;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.4);
+            flex: 1;
+            font-family: monospace;
         }
-        .mockup-content { padding: 18px; }
+
+        .mockup-content {
+            padding: 18px;
+        }
 
         /* Mini dashboard mockup */
         .dash-stat-row {
-            display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
         }
+
         .dash-stat {
-            background: rgba(99,102,241,0.1);
-            border: 1px solid rgba(99,102,241,0.25);
-            border-radius: 10px; padding: 10px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 10px;
+            padding: 10px;
             text-align: center;
         }
+
         .dash-stat .val {
-            font-size: 1.1rem; font-weight: 900;
-            background: linear-gradient(90deg,#818cf8,#a78bfa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            font-size: 1.1rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #818cf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .dash-stat .lbl { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+        .dash-stat .lbl {
+            font-size: 0.55rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 2px;
+        }
+
         .dash-member-row {
-            background: rgba(255,255,255,0.04); border-radius: 10px; padding: 10px 12px;
-            margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 7px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
         .dash-avatar {
-            width: 30px; height: 30px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            flex-shrink: 0;
         }
-        .dash-member-info .name { font-size: 0.72rem; font-weight: 700; }
-        .dash-member-info .sub { font-size: 0.6rem; color: rgba(255,255,255,0.4); }
+
+        .dash-member-info .name {
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .dash-member-info .sub {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
         .dash-badge {
-            margin-left: auto; font-size: 0.6rem; font-weight: 700;
-            padding: 3px 8px; border-radius: 999px;
+            margin-left: auto;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 999px;
         }
+
         .dash-section-title {
-            font-size: 0.62rem; font-weight: 800; color: rgba(255,255,255,0.35);
-            text-transform: uppercase; letter-spacing: 0.1em; margin: 10px 0 8px;
+            font-size: 0.62rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 10px 0 8px;
         }
 
         /* ─── TRUST BAR ─── */
         #trust {
-            background: rgba(255,255,255,0.025);
+            background: rgba(255, 255, 255, 0.025);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             padding: 28px 20px;
         }
+
         .trust-inner {
-            max-width: 1000px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: center;
-            gap: 40px; flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
-        .trust-item { text-align: center; }
+
+        .trust-item {
+            text-align: center;
+        }
+
         .trust-val {
-            font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 900;
             line-height: 1;
         }
-        .trust-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; font-weight: 600; }
+
+        .trust-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
         .trust-divider {
-            width: 1px; height: 48px;
+            width: 1px;
+            height: 48px;
             background: var(--border);
         }
-        @media(max-width:480px) { .trust-divider { display: none; } }
+
+        @media(max-width:480px) {
+            .trust-divider {
+                display: none;
+            }
+        }
 
         /* ─── DEMO VIDEO ─── */
         #demo {
             padding: 72px 20px;
-            background: rgba(255,255,255,0.015);
+            background: rgba(255, 255, 255, 0.015);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
+
         .demo-inner {
-            max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 56px; align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
         }
+
         @media(max-width: 720px) {
-            .demo-inner { grid-template-columns: 1fr; gap: 36px; }
-            .demo-phone-wrap { display: flex; justify-content: center; }
-            .demo-phone { width: min(320px, 88vw); }
-            .demo-point { text-align: left; }
-            #demo .sec-label, #demo .sec-title, #demo .sec-desc { text-align: center; }
-            #demo .reveal.btn-wa { display: flex; justify-content: center; }
+            .demo-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .demo-phone-wrap {
+                display: flex;
+                justify-content: center;
+            }
+
+            .demo-phone {
+                width: min(320px, 88vw);
+            }
+
+            .demo-point {
+                text-align: left;
+            }
+
+            #demo .sec-label,
+            #demo .sec-title,
+            #demo .sec-desc {
+                text-align: center;
+            }
+
+            #demo .reveal.btn-wa {
+                display: flex;
+                justify-content: center;
+            }
         }
+
         @media(max-width: 480px) {
-            .demo-phone { width: min(300px, 92vw); }
+            .demo-phone {
+                width: min(300px, 92vw);
+            }
         }
+
         .demo-phone-wrap {
             position: relative;
         }
+
         .demo-phone {
             position: relative;
             width: 240px;
             background: #0d1117;
             border-radius: 36px;
-            border: 3px solid rgba(255,255,255,0.14);
+            border: 3px solid rgba(255, 255, 255, 0.14);
             padding: 12px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05),
-                        inset 0 0 0 2px rgba(255,255,255,0.04);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.04);
         }
+
         .demo-phone::before {
             content: '';
-            position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-            width: 60px; height: 5px;
-            background: rgba(255,255,255,0.12);
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.12);
             border-radius: 999px;
             z-index: 2;
         }
+
         .demo-phone-screen {
             border-radius: 28px;
             overflow: hidden;
@@ -336,323 +613,713 @@
             background: #000;
             aspect-ratio: 9/16;
         }
+
         .demo-phone-screen iframe {
-            width: 100%; height: 100%;
-            border: none; display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
+
         @media(max-width: 720px) {
             .demo-phone-screen {
                 aspect-ratio: 16/9;
                 border-radius: 16px;
             }
+
             .demo-phone {
                 border-radius: 20px;
                 padding: 8px;
             }
-            .demo-phone::before { display: none; }
+
+            .demo-phone::before {
+                display: none;
+            }
         }
+
         .demo-glow {
-            position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
-            width: 200px; height: 80px;
-            background: radial-gradient(ellipse, rgba(99,102,241,0.35) 0%, transparent 70%);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 80px;
+            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.35) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .demo-point {
-            display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
+
         .demo-point-icon {
-            width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
-            background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.22);
-            display: flex; align-items: center; justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.2rem;
         }
-        .demo-point-title { font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
-        .demo-point-desc { font-size: 0.77rem; color: var(--text-muted); line-height: 1.6; }
+
+        .demo-point-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .demo-point-desc {
+            font-size: 0.77rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
 
         /* ─── FITUR ─── */
-        #fitur { background: linear-gradient(180deg, transparent, rgba(99,102,241,0.04), transparent); }
-        .fitur-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-            gap: 18px; margin-top: 40px;
+        #fitur {
+            background: linear-gradient(180deg, transparent, rgba(99, 102, 241, 0.04), transparent);
         }
+
+        .fitur-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 40px;
+        }
+
         .fitur-card {
             background: var(--surface);
             border: 1.5px solid var(--border);
-            border-radius: 18px; padding: 26px;
+            border-radius: 18px;
+            padding: 26px;
             transition: transform 0.25s, border-color 0.25s, background 0.25s;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+
         .fitur-card::before {
             content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
             background: linear-gradient(90deg, var(--indigo), var(--violet));
-            opacity: 0; transition: opacity 0.25s;
+            opacity: 0;
+            transition: opacity 0.25s;
         }
+
         .fitur-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(99,102,241,0.4);
-            background: rgba(99,102,241,0.06);
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(99, 102, 241, 0.06);
         }
-        .fitur-card:hover::before { opacity: 1; }
+
+        .fitur-card:hover::before {
+            opacity: 1;
+        }
+
         .fitur-icon {
-            font-size: 2rem; margin-bottom: 14px;
-            width: 54px; height: 54px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.2);
+            font-size: 2rem;
+            margin-bottom: 14px;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
-        .fitur-title { font-size: 0.97rem; font-weight: 800; margin-bottom: 8px; }
-        .fitur-desc { font-size: 0.79rem; color: var(--text-muted); line-height: 1.65; }
-        .fitur-list { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
+
+        .fitur-title {
+            font-size: 0.97rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .fitur-desc {
+            font-size: 0.79rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .fitur-list {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
         .fitur-list li {
-            font-size: 0.75rem; color: rgba(255,255,255,0.65);
-            display: flex; gap: 7px; align-items: flex-start;
-            list-style: none; line-height: 1.5;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.65);
+            display: flex;
+            gap: 7px;
+            align-items: flex-start;
+            list-style: none;
+            line-height: 1.5;
         }
-        .fitur-list li .chk { color: #34d399; flex-shrink: 0; margin-top: 1px; }
+
+        .fitur-list li .chk {
+            color: #34d399;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
 
         /* ─── COCOK UNTUK ─── */
-        #cocok { background: rgba(255,255,255,0.015); }
-        .bisnis-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
-            gap: 14px; margin-top: 36px;
+        #cocok {
+            background: rgba(255, 255, 255, 0.015);
         }
+
+        .bisnis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+            margin-top: 36px;
+        }
+
         .bisnis-card {
-            background: var(--surface); border: 1.5px solid var(--border);
-            border-radius: 16px; padding: 22px 12px; text-align: center;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 12px;
+            text-align: center;
             transition: transform 0.22s, border-color 0.22s, background 0.22s;
             cursor: default;
         }
+
         .bisnis-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(245,158,11,0.45);
-            background: rgba(245,158,11,0.06);
+            border-color: rgba(245, 158, 11, 0.45);
+            background: rgba(245, 158, 11, 0.06);
         }
-        .bisnis-card .b-icon { font-size: 2.2rem; margin-bottom: 10px; }
-        .bisnis-card .b-name { font-size: 0.82rem; font-weight: 800; margin-bottom: 3px; }
-        .bisnis-card .b-desc { font-size: 0.65rem; color: var(--text-dim); line-height: 1.5; }
+
+        .bisnis-card .b-icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .bisnis-card .b-name {
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .bisnis-card .b-desc {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
 
         /* ─── CARA KERJA ─── */
-        #cara-kerja { }
+        #cara-kerja {}
+
         .steps-wrap {
-            margin-top: 48px; display: flex; flex-direction: column; gap: 12px;
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             position: relative;
         }
+
         .steps-wrap::before {
             content: '';
-            position: absolute; left: 39px; top: 58px; bottom: 58px; width: 2px;
+            position: absolute;
+            left: 39px;
+            top: 58px;
+            bottom: 58px;
+            width: 2px;
             background: linear-gradient(180deg, var(--indigo), var(--violet), transparent);
         }
+
         @media(min-width:640px) {
-            .steps-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-            .steps-wrap::before { display: none; }
+            .steps-wrap {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .steps-wrap::before {
+                display: none;
+            }
         }
+
         .step-card {
-            display: flex; gap: 16px; padding: 24px;
-            background: var(--surface); border: 1.5px solid var(--border);
+            display: flex;
+            gap: 16px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
             border-radius: 18px;
             transition: border-color 0.2s, background 0.2s;
-            position: relative; margin-left: 0;
+            position: relative;
+            margin-left: 0;
         }
-        .step-card:hover { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.05); }
+
+        .step-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
         .step-num {
-            width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            flex-shrink: 0;
             background: linear-gradient(135deg, var(--indigo), var(--violet));
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; font-weight: 900;
-            box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
         }
-        .step-body .s-title { font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; }
-        .step-body .s-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+
+        .step-body .s-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .step-body .s-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
 
         /* ─── HARGA ─── */
         #harga {
-            background: linear-gradient(180deg, transparent, rgba(99,102,241,0.05), transparent);
+            background: linear-gradient(180deg, transparent, rgba(99, 102, 241, 0.05), transparent);
         }
+
         .harga-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-            gap: 20px; margin-top: 44px; align-items: start;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 44px;
+            align-items: start;
         }
+
         .harga-card {
-            background: var(--surface); border: 1.5px solid var(--border);
-            border-radius: 22px; padding: 30px; position: relative; overflow: hidden;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
         }
-        .harga-card:hover { transform: translateY(-5px); }
+
+        .harga-card:hover {
+            transform: translateY(-5px);
+        }
+
         .harga-card.featured {
             border-color: var(--indigo);
-            background: rgba(99,102,241,0.08);
-            box-shadow: 0 0 0 1px rgba(99,102,241,0.2), 0 24px 60px rgba(99,102,241,0.2);
+            background: rgba(99, 102, 241, 0.08);
+            box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2), 0 24px 60px rgba(99, 102, 241, 0.2);
         }
+
         .featured-badge {
-            position: absolute; top: 18px; right: 18px;
+            position: absolute;
+            top: 18px;
+            right: 18px;
             background: linear-gradient(135deg, var(--indigo), var(--violet));
-            color: #fff; font-size: 0.62rem; font-weight: 800;
-            letter-spacing: 0.08em; text-transform: uppercase;
-            padding: 4px 10px; border-radius: 999px;
+            color: #fff;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
         }
+
         .harga-tier {
-            font-size: 0.68rem; font-weight: 800; letter-spacing: 0.15em;
-            text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 10px;
         }
-        .harga-name { font-size: 1.2rem; font-weight: 900; margin-bottom: 6px; }
-        .harga-desc { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+
+        .harga-name {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .harga-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
         .harga-price {
             margin-bottom: 24px;
         }
+
         .harga-price .angka {
-            font-size: 2.2rem; font-weight: 900; line-height: 1;
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
         }
+
         .harga-price .satuan {
-            font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
+
         .harga-price .coret {
-            font-size: 0.85rem; color: var(--text-dim);
-            text-decoration: line-through; margin-bottom: 4px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-decoration: line-through;
+            margin-bottom: 4px;
         }
+
         .harga-divider {
-            height: 1px; background: var(--border); margin: 20px 0;
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0;
         }
-        .harga-includes { display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
+
+        .harga-includes {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 26px;
+        }
+
         .harga-item {
-            display: flex; gap: 9px; align-items: flex-start;
-            font-size: 0.79rem; color: rgba(255,255,255,0.75); line-height: 1.45;
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            font-size: 0.79rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.45;
         }
-        .harga-item .ico { flex-shrink: 0; margin-top: 1px; }
-        .ico-yes { color: #34d399; }
-        .ico-no { color: rgba(255,255,255,0.2); }
+
+        .harga-item .ico {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .ico-yes {
+            color: #34d399;
+        }
+
+        .ico-no {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
         .btn-order {
-            display: block; text-align: center;
-            padding: 13px; border-radius: 12px;
-            font-size: 0.87rem; font-weight: 800;
-            text-decoration: none; transition: all 0.2s;
-            border: none; cursor: pointer; width: 100%;
+            display: block;
+            text-align: center;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: 0.87rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
+
         .btn-order-primary {
             background: linear-gradient(135deg, var(--indigo), var(--violet));
             color: #fff;
-            box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
         }
-        .btn-order-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+        .btn-order-primary:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
+
         .btn-order-outline {
             background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.18) !important;
-            color: rgba(255,255,255,0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+            color: rgba(255, 255, 255, 0.8);
         }
-        .btn-order-outline:hover { background: var(--surface); border-color: rgba(255,255,255,0.35) !important; }
+
+        .btn-order-outline:hover {
+            background: var(--surface);
+            border-color: rgba(255, 255, 255, 0.35) !important;
+        }
+
         .btn-order-wa {
-            background: linear-gradient(135deg,#25d366,#128c7e);
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
-            box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
         }
-        .btn-order-wa:hover { opacity: 0.88; transform: translateY(-2px); }
+
+        .btn-order-wa:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
 
         /* ─── PERBANDINGAN ─── */
-        #perbandingan { background: rgba(255,255,255,0.015); }
+        #perbandingan {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
         .ba-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 36px;
         }
-        @media(max-width:540px) { .ba-grid { grid-template-columns: 1fr; } }
-        .ba-card { border-radius: 18px; padding: 26px; }
-        .ba-before { background: rgba(239,68,68,0.07); border: 1.5px solid rgba(239,68,68,0.2); }
-        .ba-after  { background: rgba(16,185,129,0.07); border: 1.5px solid rgba(16,185,129,0.2); }
+
+        @media(max-width:540px) {
+            .ba-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ba-card {
+            border-radius: 18px;
+            padding: 26px;
+        }
+
+        .ba-before {
+            background: rgba(239, 68, 68, 0.07);
+            border: 1.5px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .ba-after {
+            background: rgba(16, 185, 129, 0.07);
+            border: 1.5px solid rgba(16, 185, 129, 0.2);
+        }
+
         .ba-head {
-            font-size: 0.7rem; font-weight: 900; letter-spacing: 0.12em;
-            text-transform: uppercase; margin-bottom: 18px;
-            display: flex; align-items: center; gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .ba-before .ba-head { color: #f87171; }
-        .ba-after  .ba-head { color: #34d399; }
-        .ba-items { display: flex; flex-direction: column; gap: 10px; }
+
+        .ba-before .ba-head {
+            color: #f87171;
+        }
+
+        .ba-after .ba-head {
+            color: #34d399;
+        }
+
+        .ba-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .ba-i {
-            display: flex; gap: 9px; align-items: flex-start;
-            font-size: 0.8rem; color: rgba(255,255,255,0.72); line-height: 1.5;
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.5;
         }
 
         /* ─── TESTIMONI ─── */
-        #testimoni { }
+        #testimoni {}
+
         .testi-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-            gap: 18px; margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 40px;
         }
+
         .testi-card {
-            background: var(--surface); border: 1.5px solid var(--border);
-            border-radius: 18px; padding: 26px;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            padding: 26px;
             transition: border-color 0.2s, transform 0.2s;
         }
-        .testi-card:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-3px); }
-        .testi-stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+
+        .testi-card:hover {
+            border-color: rgba(99, 102, 241, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .testi-stars {
+            color: var(--amber);
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
         .testi-text {
-            font-size: 0.83rem; color: rgba(255,255,255,0.72);
-            line-height: 1.72; margin-bottom: 18px; font-style: italic;
+            font-size: 0.83rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.72;
+            margin-bottom: 18px;
+            font-style: italic;
         }
-        .testi-profile { display: flex; align-items: center; gap: 12px; }
+
+        .testi-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .testi-avatar {
-            width: 48px; height: 48px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; font-weight: 800; flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            flex-shrink: 0;
             overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.12);
+            border: 2px solid rgba(255, 255, 255, 0.12);
         }
+
         .testi-avatar img {
-            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
-        .testi-name { font-size: 0.82rem; font-weight: 800; }
-        .testi-toko { font-size: 0.7rem; color: var(--text-muted); }
+
+        .testi-name {
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .testi-toko {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
 
         /* ─── FAQ ─── */
-        #faq { background: rgba(255,255,255,0.015); }
-        .faq-list { margin-top: 36px; display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
+        #faq {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .faq-list {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 720px;
+        }
+
         .faq-item {
-            background: var(--surface); border: 1.5px solid var(--border);
-            border-radius: 14px; overflow: hidden;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
             transition: border-color 0.2s;
         }
-        .faq-item.open { border-color: rgba(99,102,241,0.4); }
+
+        .faq-item.open {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
         .faq-q {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 20px; cursor: pointer;
-            font-size: 0.88rem; font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 700;
             user-select: none;
         }
+
         .faq-q .arr {
-            font-size: 0.7rem; color: var(--text-muted);
-            transition: transform 0.25s; flex-shrink: 0; margin-left: 12px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            transition: transform 0.25s;
+            flex-shrink: 0;
+            margin-left: 12px;
         }
-        .faq-item.open .faq-q .arr { transform: rotate(180deg); }
+
+        .faq-item.open .faq-q .arr {
+            transform: rotate(180deg);
+        }
+
         .faq-a {
             display: none;
             padding: 0 20px 18px;
-            font-size: 0.82rem; color: var(--text-muted); line-height: 1.7;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.7;
         }
-        .faq-item.open .faq-a { display: block; }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
 
         /* ─── CTA FINAL ─── */
         #cta-final {
             padding: 90px 20px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.08));
-            border-top: 1px solid rgba(99,102,241,0.18);
-            position: relative; overflow: hidden;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.08));
+            border-top: 1px solid rgba(99, 102, 241, 0.18);
+            position: relative;
+            overflow: hidden;
         }
+
         #cta-final::before {
             content: '';
-            position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 400px;
-            background: radial-gradient(ellipse, rgba(99,102,241,0.2) 0%, transparent 70%);
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .cta-title {
             font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 900; line-height: 1.2; margin-bottom: 18px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 18px;
             position: relative;
         }
+
         .cta-sub {
-            font-size: 1rem; color: var(--text-muted); margin-bottom: 36px;
-            line-height: 1.7; max-width: 560px; margin-left: auto; margin-right: auto;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.7;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .cta-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .cta-btn-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn-big {
-            padding: 16px 32px !important; font-size: 1rem !important; border-radius: 15px !important;
+            padding: 16px 32px !important;
+            font-size: 1rem !important;
+            border-radius: 15px !important;
         }
 
         /* ─── FOOTER ─── */
@@ -661,49 +1328,98 @@
             border-top: 1px solid var(--border);
             padding: 40px 20px 30px;
         }
+
         .footer-inner {
-            max-width: 1000px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
-            flex-wrap: wrap; gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        .footer-brand { font-size: 0.95rem; font-weight: 800; }
-        .footer-brand span { color: var(--text-muted); font-size: 0.72rem; font-weight: 400; display: block; margin-top: 4px; }
+
+        .footer-brand {
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+
+        .footer-brand span {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-weight: 400;
+            display: block;
+            margin-top: 4px;
+        }
+
         .footer-links {
-            display: flex; gap: 20px; flex-wrap: wrap;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
+
         .footer-links a {
-            color: var(--text-muted); text-decoration: none;
-            font-size: 0.78rem; font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
-        .footer-links a:hover { color: #fff; }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
         .footer-bottom {
-            max-width: 1000px; margin: 24px auto 0;
-            padding-top: 20px; border-top: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: space-between;
-            flex-wrap: wrap; gap: 10px;
-            font-size: 0.72rem; color: var(--text-dim);
+            max-width: 1000px;
+            margin: 24px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.72rem;
+            color: var(--text-dim);
         }
 
         /* ─── FLOATING WA ─── */
         #float-wa {
-            position: fixed; bottom: 24px; right: 24px; z-index: 200;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 200;
             background: linear-gradient(135deg, #25d366, #128c7e);
-            color: #fff; border-radius: 50%;
-            width: 58px; height: 58px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; text-decoration: none;
-            box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+            color: #fff;
+            border-radius: 50%;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
             transition: transform 0.2s, box-shadow 0.2s;
             animation: float-bounce 3s ease-in-out infinite;
         }
+
         #float-wa:hover {
             transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 14px 36px rgba(37,211,102,0.55);
+            box-shadow: 0 14px 36px rgba(37, 211, 102, 0.55);
         }
+
         @keyframes float-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
         }
 
         /* ─── COUNTDOWN ─── */
@@ -711,797 +1427,973 @@
             margin: 18px 0 4px;
             text-align: center;
         }
+
         .countdown-label {
-            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em;
-            text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 10px;
         }
+
         .countdown-box {
-            display: inline-flex; align-items: center; justify-content: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             gap: 6px;
         }
+
         .cd-seg {
             background: #0d1117;
-            border: 1.5px solid rgba(255,255,255,0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
             border-radius: 10px;
             padding: 10px 16px;
             min-width: 64px;
             text-align: center;
         }
+
         .cd-num {
-            font-size: 2rem; font-weight: 900; line-height: 1;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
             font-variant-numeric: tabular-nums;
             background: linear-gradient(135deg, #818cf8, #a78bfa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .cd-lbl {
-            font-size: 0.55rem; color: var(--text-dim);
-            font-weight: 600; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.1em;
+            font-size: 0.55rem;
+            color: var(--text-dim);
+            font-weight: 600;
+            margin-top: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
+
         .cd-colon {
-            font-size: 1.8rem; font-weight: 900; color: rgba(255,255,255,0.25);
-            line-height: 1; margin-bottom: 14px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.25);
+            line-height: 1;
+            margin-bottom: 14px;
         }
+
         .cd-expired {
-            font-size: 0.78rem; color: #f87171; font-weight: 700;
+            font-size: 0.78rem;
+            color: #f87171;
+            font-weight: 700;
             padding: 8px 16px;
-            background: rgba(239,68,68,0.1);
-            border: 1px solid rgba(239,68,68,0.25);
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.25);
             border-radius: 9px;
             display: inline-block;
         }
 
         /* ─── SCROLL REVEAL ─── */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ─── RESPONSIVE ─── */
         @media(max-width:480px) {
-            .sec { padding: 52px 16px; }
-            .harga-grid { grid-template-columns: 1fr; }
-            .cd-seg { min-width: 54px; padding: 8px 12px; }
-            .cd-num { font-size: 1.6rem; }
-            .faq-list { max-width: 100%; }
-            .bisnis-grid { grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); }
-            .cta-btn-row { flex-direction: column; align-items: stretch; }
-            .cta-btn-row a { text-align: center; justify-content: center; }
+            .sec {
+                padding: 52px 16px;
+            }
+
+            .harga-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cd-seg {
+                min-width: 54px;
+                padding: 8px 12px;
+            }
+
+            .cd-num {
+                font-size: 1.6rem;
+            }
+
+            .faq-list {
+                max-width: 100%;
+            }
+
+            .bisnis-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .cta-btn-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-btn-row a {
+                text-align: center;
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<!-- ═══════════════════════════════════ TOPBAR ═══════════════════════════════════ -->
-<nav id="topbar">
-    <div class="topbar-brand">
-        <div class="logo-icon">🪙</div>
-        MemberPoint Pro
-    </div>
-    <div class="topbar-nav">
-        <a href="#fitur">Fitur</a>
-        <a href="#harga">Harga</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%20250.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5" target="_blank" class="btn-nav-cta">💬 Order Sekarang</a>
-    </div>
-</nav>
+    <!-- ═══════════════════════════════════ TOPBAR ═══════════════════════════════════ -->
+    <nav id="topbar">
+        <div class="topbar-brand">
+            <div class="logo-icon">🪙</div>
+            MemberPoint Pro
+        </div>
+        <div class="topbar-nav">
+            <a href="#fitur">Fitur</a>
+            <a href="#harga">Harga</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%2099.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5"
+                target="_blank" class="btn-nav-cta">💬 Order Sekarang</a>
+        </div>
+    </nav>
 
-<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
-<section id="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
-    <div class="hero-inner">
-        <div class="hero-text">
-            <div class="hero-badge">
-                <div class="dot"></div>
-                Jasa Deploy — Langsung Jadi & Siap Pakai
+    <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+    <section id="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <div class="dot"></div>
+                    Jasa Deploy — Langsung Jadi & Siap Pakai
+                </div>
+                <h1 class="hero-title">
+                    Web Member Poin<br>
+                    <span class="grad-text">Digital Untuk Toko</span><br>
+                    <span class="amber-text">UMKM Anda</span>
+                </h1>
+                <p class="hero-sub">
+                    Buat pelanggan Anda <strong>loyal &amp; terus balik lagi</strong> dengan sistem poin digital.
+                    Kartu member QR, dashboard admin modern, redeem hadiah — semua sudah termasuk.
+                    <strong>Bayar sekali, pakai selamanya.</strong>
+                </p>
+                <div class="hero-cta-row">
+                    <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%2099.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5"
+                        target="_blank" class="btn-primary btn-wa">
+                        <i class="fab fa-whatsapp"></i> Chat &amp; Order Sekarang
+                    </a>
+                    <a href="#fitur" class="btn-secondary">
+                        <i class="fa fa-play-circle"></i> Lihat Fitur
+                    </a>
+                </div>
             </div>
-            <h1 class="hero-title">
-                Web Member Poin<br>
-                <span class="grad-text">Digital Untuk Toko</span><br>
-                <span class="amber-text">UMKM Anda</span>
-            </h1>
-            <p class="hero-sub">
-                Buat pelanggan Anda <strong>loyal &amp; terus balik lagi</strong> dengan sistem poin digital.
-                Kartu member QR, dashboard admin modern, redeem hadiah — semua sudah termasuk.
-                <strong>Bayar sekali, pakai selamanya.</strong>
+
+            <!-- Mockup Dashboard Preview -->
+            <div class="hero-visual">
+                <div class="mockup-window">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot d-red"></div>
+                        <div class="mockup-dot d-yellow"></div>
+                        <div class="mockup-dot d-green"></div>
+                        <div class="mockup-url">member.tokoku.web.id/dashboard</div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="dash-section-title">📊 Statistik Hari Ini</div>
+                        <div class="dash-stat-row">
+                            <div class="dash-stat">
+                                <div class="val">248</div>
+                                <div class="lbl">Total Member</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="val">18.4K</div>
+                                <div class="lbl">Poin Beredar</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="val">12</div>
+                                <div class="lbl">Trx Hari Ini</div>
+                            </div>
+                        </div>
+                        <div class="dash-section-title">🏆 Top Member</div>
+                        <div class="dash-member-row">
+                            <div class="dash-avatar" style="background:rgba(99,102,241,0.25);color:#a78bfa">BU</div>
+                            <div class="dash-member-info">
+                                <div class="name">Budi Santoso</div>
+                                <div class="sub">ID: 20260227AB12 · 47 trx</div>
+                            </div>
+                            <div class="dash-badge"
+                                style="background:rgba(245,158,11,0.18);color:#fbbf24;border:1px solid rgba(251,191,36,0.3)">
+                                1.250 poin</div>
+                        </div>
+                        <div class="dash-member-row">
+                            <div class="dash-avatar" style="background:rgba(16,185,129,0.2);color:#34d399">SR</div>
+                            <div class="dash-member-info">
+                                <div class="name">Sari Rahayu</div>
+                                <div class="sub">ID: 20260215CD34 · 38 trx</div>
+                            </div>
+                            <div class="dash-badge"
+                                style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)">
+                                980 poin</div>
+                        </div>
+                        <div class="dash-member-row">
+                            <div class="dash-avatar" style="background:rgba(236,72,153,0.2);color:#f472b6">AH</div>
+                            <div class="dash-member-info">
+                                <div class="name">Ahmad Hasan</div>
+                                <div class="sub">ID: 20260110EF56 · 31 trx</div>
+                            </div>
+                            <div class="dash-badge"
+                                style="background:rgba(236,72,153,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3)">
+                                720 poin</div>
+                        </div>
+                        <div class="dash-section-title" style="margin-top:12px">🎁 Aktivitas Terbaru</div>
+                        <div style="display:flex;flex-direction:column;gap:6px">
+                            <div
+                                style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:7px 10px;font-size:0.62rem;display:flex;justify-content:space-between;align-items:center">
+                                <span>Budi Santoso — Pulsa Top Up</span>
+                                <span style="color:#34d399;font-weight:800">+50 poin</span>
+                            </div>
+                            <div
+                                style="background:rgba(239,68,68,0.09);border:1px solid rgba(239,68,68,0.18);border-radius:8px;padding:7px 10px;font-size:0.62rem;display:flex;justify-content:space-between;align-items:center">
+                                <span>Sari Rahayu — Redeem Minyak 2L</span>
+                                <span style="color:#f87171;font-weight:800">-500 poin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ TRUST BAR ═══════════════════════════════════ -->
+    <section id="trust">
+        <div class="trust-inner">
+            <div class="trust-item reveal">
+                <div class="trust-val amber-text">100%</div>
+                <div class="trust-label">Gratis Hosting — Tanpa Biaya Server</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item reveal">
+                <div class="trust-val grad-text">1×</div>
+                <div class="trust-label">Bayar Sekali, Pakai Selamanya</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item reveal">
+                <div class="trust-val" style="color:#34d399">QR</div>
+                <div class="trust-label">Kartu Member Digital + Scan</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item reveal">
+                <div class="trust-val" style="color:#f472b6">24/7</div>
+                <div class="trust-label">Sistem Berjalan Otomatis</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ DEMO VIDEO ═══════════════════════════════════ -->
+    <section id="demo">
+        <div class="demo-inner">
+
+            <!-- Kiri: Phone Mockup + Video -->
+            <div class="demo-phone-wrap reveal">
+                <div class="demo-phone">
+                    <div class="demo-phone-screen">
+                        <iframe src="https://www.youtube.com/embed/WY990Jrpx3s?rel=0&playsinline=1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Demo Web Member UMKM"></iframe>
+                    </div>
+                </div>
+                <div class="demo-glow"></div>
+            </div>
+
+            <!-- Kanan: Teks -->
+            <div>
+                <div class="sec-label reveal">✦ Demo Langsung</div>
+                <h2 class="sec-title reveal">Lihat Sendiri<br><span class="grad-text">Sistem Ini Bekerja</span></h2>
+                <p class="sec-desc reveal" style="margin-bottom:32px">Tonton video demo singkat — dari scan QR
+                    pelanggan, input poin, sampai tampilan dashboard admin di HP.</p>
+                <div class="demo-point reveal">
+                    <div class="demo-point-icon">📷</div>
+                    <div>
+                        <div class="demo-point-title">Scan QR Cuma 2 Detik</div>
+                        <div class="demo-point-desc">Admin buka kamera HP, scan kartu QR pelanggan, langsung muncul data
+                            member beserta saldo poin.</div>
+                    </div>
+                </div>
+                <div class="demo-point reveal">
+                    <div class="demo-point-icon">📊</div>
+                    <div>
+                        <div class="demo-point-title">Dashboard Real-Time di HP</div>
+                        <div class="demo-point-desc">Pantau total member, poin beredar, dan aktivitas transaksi hari ini
+                            langsung dari genggaman tangan.</div>
+                    </div>
+                </div>
+                <div class="demo-point reveal">
+                    <div class="demo-point-icon">🎁</div>
+                    <div>
+                        <div class="demo-point-title">Redeem Hadiah Mudah</div>
+                        <div class="demo-point-desc">Pelanggan pilih hadiah, admin konfirmasi — poin otomatis berkurang
+                            dan tercatat rapi di riwayat.</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20baru%20nonton%20videonya%20nih%2C%20keren%20banget!%20Saya%20mau%20yang%20sama%20untuk%20toko%20saya.%20Promonya%20masih%20Rp%2099.000%20kan%3F%20%F0%9F%99%8F"
+                    target="_blank" class="btn-primary btn-wa reveal" style="margin-top:8px;display:inline-flex">
+                    <i class="fab fa-whatsapp"></i> Mau yang Sama? Chat Sekarang
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ FITUR ═══════════════════════════════════ -->
+    <section id="fitur" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Fitur Unggulan</div>
+            <h2 class="sec-title reveal">Semua yang Toko Anda<br><span class="grad-text">Butuhkan, Sudah Termasuk</span>
+            </h2>
+            <p class="sec-desc reveal">Sistem member point digital lengkap — bukan sekedar aplikasi, tapi solusi
+                loyalitas pelanggan yang sudah terbukti.</p>
+
+            <div class="fitur-grid">
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">📊</div>
+                    <div class="fitur-title">Dashboard Admin Modern</div>
+                    <div class="fitur-desc">Pantau statistik toko secara real-time langsung dari HP atau PC.</div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> Total member & poin beredar</li>
+                        <li><span class="chk">✓</span> Top 5 member teraktif</li>
+                        <li><span class="chk">✓</span> Aktivitas transaksi hari ini</li>
+                        <li><span class="chk">✓</span> Tampilan mobile-friendly</li>
+                    </ul>
+                </div>
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">📷</div>
+                    <div class="fitur-title">Scan QR Code Member</div>
+                    <div class="fitur-desc">Admin scan kartu QR pelanggan langsung dari kamera HP — cepat & akurat.
+                    </div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> Tidak perlu alat tambahan</li>
+                        <li><span class="chk">✓</span> Buka di browser HP biasa</li>
+                        <li><span class="chk">✓</span> Langsung muncul data member</li>
+                        <li><span class="chk">✓</span> Tanpa install aplikasi</li>
+                    </ul>
+                </div>
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">🪙</div>
+                    <div class="fitur-title">Sistem Poin Fleksibel</div>
+                    <div class="fitur-desc">Tentukan sendiri berapa poin untuk tiap produk atau layanan toko Anda.</div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> Katalog poin per produk</li>
+                        <li><span class="chk">✓</span> Edit kapan saja dari dashboard</li>
+                        <li><span class="chk">✓</span> Riwayat poin masuk & keluar</li>
+                        <li><span class="chk">✓</span> Akumulasi total poin otomatis</li>
+                    </ul>
+                </div>
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">🎁</div>
+                    <div class="fitur-title">Redeem Hadiah</div>
+                    <div class="fitur-desc">Pelanggan tukar poin yang terkumpul dengan hadiah pilihan toko.</div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> Daftar hadiah bisa diatur</li>
+                        <li><span class="chk">✓</span> Cek saldo poin real-time</li>
+                        <li><span class="chk">✓</span> Proses redeem 2 klik</li>
+                        <li><span class="chk">✓</span> Stok hadiah tidak terbatas</li>
+                    </ul>
+                </div>
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">💳</div>
+                    <div class="fitur-title">Kartu Member Digital</div>
+                    <div class="fitur-desc">Setiap member punya kartu digital dengan QR unik yang bisa disimpan di HP.
+                    </div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> QR Code pribadi unik per member</li>
+                        <li><span class="chk">✓</span> Tampil nama, ID & saldo poin</li>
+                        <li><span class="chk">✓</span> Bisa screenshot & simpan di HP</li>
+                        <li><span class="chk">✓</span> Portal pelanggan mandiri</li>
+                    </ul>
+                </div>
+                <div class="fitur-card reveal">
+                    <div class="fitur-icon">📋</div>
+                    <div class="fitur-title">Data Tersimpan Aman &amp; Rapi</div>
+                    <div class="fitur-desc">Semua data tersimpan rapi di sistem cloud — aman &amp; mudah diakses kapan
+                        saja dari HP maupun laptop.</div>
+                    <ul class="fitur-list">
+                        <li><span class="chk">✓</span> Data 100% milik Anda</li>
+                        <li><span class="chk">✓</span> Buka di HP / laptop</li>
+                        <li><span class="chk">✓</span> Export ke Excel kapan saja</li>
+                        <li><span class="chk">✓</span> Backup otomatis &amp; aman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ COCOK UNTUK ═══════════════════════════════════ -->
+    <section id="cocok" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Cocok Untuk</div>
+            <h2 class="sec-title reveal">Semua Jenis<br><span class="amber-text">UMKM &amp; Toko</span></h2>
+            <p class="sec-desc reveal">Dari toko kecil sampai usaha berkembang — sistem ini dirancang untuk semua skala
+                bisnis.</p>
+            <div class="bisnis-grid">
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">📱</div>
+                    <div class="b-name">Counter HP / Cell</div>
+                    <div class="b-desc">Pulsa, paket data, aksesoris &amp; service HP</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">🖨️</div>
+                    <div class="b-name">Fotocopy &amp; Print</div>
+                    <div class="b-desc">Percetakan, ATK &amp; perlengkapan kantor</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">🛒</div>
+                    <div class="b-name">Minimarket / Warung</div>
+                    <div class="b-desc">Sembako, minuman &amp; kebutuhan sehari-hari</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">💇</div>
+                    <div class="b-name">Salon &amp; Barbershop</div>
+                    <div class="b-desc">Potong rambut, perawatan &amp; kecantikan</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">🍕</div>
+                    <div class="b-name">Warung Makan / Cafe</div>
+                    <div class="b-desc">Makanan, minuman &amp; camilan</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">💊</div>
+                    <div class="b-name">Apotek / Toko Obat</div>
+                    <div class="b-desc">Obat, suplemen &amp; kebutuhan kesehatan</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">👗</div>
+                    <div class="b-name">Toko Baju / Fashion</div>
+                    <div class="b-desc">Pakaian, tas &amp; aksesoris fashion</div>
+                </div>
+                <div class="bisnis-card reveal">
+                    <div class="b-icon">🔧</div>
+                    <div class="b-name">Bengkel / Service</div>
+                    <div class="b-desc">Servis kendaraan, elektronik &amp; peralatan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ PERBANDINGAN ═══════════════════════════════════ -->
+    <section id="perbandingan" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Sebelum vs Sesudah</div>
+            <h2 class="sec-title reveal">Apa Bedanya<br><span class="grad-text">Punya Sistem Member?</span></h2>
+            <div class="ba-grid">
+                <div class="ba-card ba-before reveal">
+                    <div class="ba-head"><span>❌</span> Tanpa Sistem Member</div>
+                    <div class="ba-items">
+                        <div class="ba-i"><span>😞</span> Pelanggan beli sekali, tidak pernah balik lagi</div>
+                        <div class="ba-i"><span>📝</span> Kartu member fisik mudah hilang &amp; rusak</div>
+                        <div class="ba-i"><span>📒</span> Catat poin manual di buku — rawan salah &amp; lupa</div>
+                        <div class="ba-i"><span>❓</span> Tidak tahu siapa pelanggan paling setia</div>
+                        <div class="ba-i"><span>🎲</span> Program promo tidak terukur hasilnya</div>
+                        <div class="ba-i"><span>😤</span> Pelanggan mudah pindah ke toko saingan</div>
+                    </div>
+                </div>
+                <div class="ba-card ba-after reveal">
+                    <div class="ba-head"><span>✅</span> Dengan Web Member Poin Digital</div>
+                    <div class="ba-items">
+                        <div class="ba-i"><span>🔄</span> Pelanggan terus balik karena kejar poin &amp; hadiah</div>
+                        <div class="ba-i"><span>📱</span> Kartu digital di HP — tidak pernah hilang</div>
+                        <div class="ba-i"><span>⚡</span> Input poin 2 detik via scan QR, otomatis tercatat</div>
+                        <div class="ba-i"><span>📊</span> Dashboard tampilkan top member &amp; statistik lengkap</div>
+                        <div class="ba-i"><span>🎁</span> Hadiah menarik bikin pelanggan semangat belanja lebih</div>
+                        <div class="ba-i"><span>💪</span> Loyalitas pelanggan meningkat, omzet tumbuh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CARA KERJA ═══════════════════════════════════ -->
+    <section id="cara-kerja" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Proses Order</div>
+            <h2 class="sec-title reveal">Cara Kerja<br><span class="grad-text">Pemesanan Jasa</span></h2>
+            <p class="sec-desc reveal">Dari order sampai web member toko Anda siap, prosesnya cepat dan mudah.</p>
+            <div class="steps-wrap">
+                <div class="step-card reveal">
+                    <div class="step-num">1</div>
+                    <div class="step-body">
+                        <div class="s-title">💬 Hubungi via WhatsApp</div>
+                        <div class="s-desc">Chat saya via WA, ceritakan nama toko dan jenis usaha Anda. Konsultasi
+                            gratis!</div>
+                    </div>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-num">2</div>
+                    <div class="step-body">
+                        <div class="s-title">📋 Kirim Data Toko</div>
+                        <div class="s-desc">Kirim nama toko, tagline, dan data awal yang dibutuhkan. Jika ada logo/foto,
+                            lampirkan juga.</div>
+                    </div>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
+                        <div class="s-title">💳 Konfirmasi &amp; Bayar</div>
+                        <div class="s-desc">Pilih paket yang sesuai, lakukan pembayaran ke rekening yang tersedia. Bisa
+                            transfer / QRIS.</div>
+                    </div>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-num">4</div>
+                    <div class="step-body">
+                        <div class="s-title">⚙️ Proses Deploy</div>
+                        <div class="s-desc">Saya setup sistem web member khusus toko Anda, dikustomisasi sesuai nama
+                            &amp; jenis usaha.</div>
+                    </div>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-num">5</div>
+                    <div class="step-body">
+                        <div class="s-title">🚀 Live &amp; Siap Pakai</div>
+                        <div class="s-desc">Anda terima URL web member yang langsung bisa dibuka di browser HP/laptop.
+                            Selesai dalam 1–3 jam!</div>
+                    </div>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-num">6</div>
+                    <div class="step-body">
+                        <div class="s-title">📚 Panduan &amp; Support</div>
+                        <div class="s-desc">Saya berikan panduan lengkap cara pakai. Ada pertanyaan? Chat langsung lewat
+                            WA kapan saja.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ HARGA ═══════════════════════════════════ -->
+    <section id="harga" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Harga</div>
+            <h2 class="sec-title reveal">Satu Harga,<br><span class="amber-text">Semua Sudah Termasuk</span></h2>
+            <p class="sec-desc reveal">Bayar sekali, sistem berjalan selamanya. Tidak ada biaya bulanan atau per-member.
             </p>
-            <div class="hero-cta-row">
-                <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%20250.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5" target="_blank" class="btn-primary btn-wa">
-                    <i class="fab fa-whatsapp"></i> Chat &amp; Order Sekarang
-                </a>
-                <a href="#fitur" class="btn-secondary">
-                    <i class="fa fa-play-circle"></i> Lihat Fitur
-                </a>
-            </div>
-        </div>
+            <div style="max-width:460px;margin:40px auto 0">
 
-        <!-- Mockup Dashboard Preview -->
-        <div class="hero-visual">
-            <div class="mockup-window">
-                <div class="mockup-bar">
-                    <div class="mockup-dot d-red"></div>
-                    <div class="mockup-dot d-yellow"></div>
-                    <div class="mockup-dot d-green"></div>
-                    <div class="mockup-url">member.tokoku.web.id/dashboard</div>
-                </div>
-                <div class="mockup-content">
-                    <div class="dash-section-title">📊 Statistik Hari Ini</div>
-                    <div class="dash-stat-row">
-                        <div class="dash-stat">
-                            <div class="val">248</div>
-                            <div class="lbl">Total Member</div>
-                        </div>
-                        <div class="dash-stat">
-                            <div class="val">18.4K</div>
-                            <div class="lbl">Poin Beredar</div>
-                        </div>
-                        <div class="dash-stat">
-                            <div class="val">12</div>
-                            <div class="lbl">Trx Hari Ini</div>
+                <!-- PAKET ALL-IN-ONE -->
+                <div class="harga-card featured reveal" style="text-align:center">
+                    <div class="featured-badge" id="idx-featured-badge">🔥 Promo Terbatas</div>
+                    <div class="harga-tier" style="margin-top:8px">Paket Lengkap</div>
+                    <div class="harga-name" style="font-size:1.5rem">Web Member UMKM</div>
+                    <!-- Badge slot -->
+                    <div id="idx-slot-badge" style="display:none;justify-content:center;margin:8px 0">
+                        <span
+                            style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);color:#fbbf24;font-size:0.72rem;font-weight:800;padding:5px 14px;border-radius:999px">
+                            <span
+                                style="width:7px;height:7px;border-radius:50%;background:#fbbf24;animation:float-bounce 1.2s ease-in-out infinite;display:inline-block"></span>
+                            <span id="idx-slot-count">10 SLOT TERSISA</span>
+                        </span>
+                    </div>
+                    <!-- Badge slot habis -->
+                    <div id="idx-slot-habis" style="display:none;justify-content:center;margin:8px 0">
+                        <span
+                            style="display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#f87171;font-size:0.72rem;font-weight:800;padding:5px 14px;border-radius:999px">
+                            🔒 SLOT PROMO HABIS — Harga Normal
+                        </span>
+                    </div>
+                    <div class="harga-desc">Sistem member poin digital komplit — dashboard admin, kartu QR, redeem
+                        hadiah, poster promosi. Semua sudah termasuk.</div>
+
+                    <!-- COUNTDOWN -->
+                    <div class="countdown-wrap">
+                        <div class="countdown-label">⏰ Penawaran berakhir dalam</div>
+                        <div id="countdown-display" class="countdown-box">
+                            <div class="cd-seg">
+                                <div class="cd-num" id="cd-min">08</div>
+                                <div class="cd-lbl">Menit</div>
+                            </div>
+                            <div class="cd-colon">:</div>
+                            <div class="cd-seg">
+                                <div class="cd-num" id="cd-sec">00</div>
+                                <div class="cd-lbl">Detik</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="dash-section-title">🏆 Top Member</div>
-                    <div class="dash-member-row">
-                        <div class="dash-avatar" style="background:rgba(99,102,241,0.25);color:#a78bfa">BU</div>
-                        <div class="dash-member-info">
-                            <div class="name">Budi Santoso</div>
-                            <div class="sub">ID: 20260227AB12 · 47 trx</div>
-                        </div>
-                        <div class="dash-badge" style="background:rgba(245,158,11,0.18);color:#fbbf24;border:1px solid rgba(251,191,36,0.3)">1.250 poin</div>
-                    </div>
-                    <div class="dash-member-row">
-                        <div class="dash-avatar" style="background:rgba(16,185,129,0.2);color:#34d399">SR</div>
-                        <div class="dash-member-info">
-                            <div class="name">Sari Rahayu</div>
-                            <div class="sub">ID: 20260215CD34 · 38 trx</div>
-                        </div>
-                        <div class="dash-badge" style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3)">980 poin</div>
-                    </div>
-                    <div class="dash-member-row">
-                        <div class="dash-avatar" style="background:rgba(236,72,153,0.2);color:#f472b6">AH</div>
-                        <div class="dash-member-info">
-                            <div class="name">Ahmad Hasan</div>
-                            <div class="sub">ID: 20260110EF56 · 31 trx</div>
-                        </div>
-                        <div class="dash-badge" style="background:rgba(236,72,153,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3)">720 poin</div>
-                    </div>
-                    <div class="dash-section-title" style="margin-top:12px">🎁 Aktivitas Terbaru</div>
-                    <div style="display:flex;flex-direction:column;gap:6px">
-                        <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:7px 10px;font-size:0.62rem;display:flex;justify-content:space-between;align-items:center">
-                            <span>Budi Santoso — Pulsa Top Up</span>
-                            <span style="color:#34d399;font-weight:800">+50 poin</span>
-                        </div>
-                        <div style="background:rgba(239,68,68,0.09);border:1px solid rgba(239,68,68,0.18);border-radius:8px;padding:7px 10px;font-size:0.62rem;display:flex;justify-content:space-between;align-items:center">
-                            <span>Sari Rahayu — Redeem Minyak 2L</span>
-                            <span style="color:#f87171;font-weight:800">-500 poin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ═══════════════════════════════════ TRUST BAR ═══════════════════════════════════ -->
-<section id="trust">
-    <div class="trust-inner">
-        <div class="trust-item reveal">
-            <div class="trust-val amber-text">100%</div>
-            <div class="trust-label">Gratis Hosting — Tanpa Biaya Server</div>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item reveal">
-            <div class="trust-val grad-text">1×</div>
-            <div class="trust-label">Bayar Sekali, Pakai Selamanya</div>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item reveal">
-            <div class="trust-val" style="color:#34d399">QR</div>
-            <div class="trust-label">Kartu Member Digital + Scan</div>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item reveal">
-            <div class="trust-val" style="color:#f472b6">24/7</div>
-            <div class="trust-label">Sistem Berjalan Otomatis</div>
-        </div>
-    </div>
-</section>
+                    <div class="harga-price" style="margin:16px 0 22px">
+                        <div class="coret" id="idx-harga-coret" style="font-size:1rem;display:none">Rp 550.000</div>
+                        <div class="angka grad-text" id="idx-harga-tampil" style="font-size:clamp(2rem,8vw,3rem)">Rp
+                            99.000</div>
+                        <div class="satuan">Bayar sekali · Pakai selamanya · Tanpa biaya bulanan</div>
+                    </div>
+                    <div class="harga-divider"></div>
+                    <div class="harga-includes" style="text-align:left">
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Web member URL khusus nama toko Anda
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Dashboard admin modern (HP &amp; PC)
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Daftar &amp; kartu member QR digital
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Input poin via scan QR kamera HP
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> <strong>Katalog poin tidak
+                                terbatas</strong></div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> <strong>Daftar hadiah tidak
+                                terbatas</strong></div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Portal kartu pelanggan mandiri</div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Poster mading A4 Landscape siap cetak
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Flyer promosi A4 Portrait siap cetak
+                        </div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Panduan pemakaian lengkap</div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Support WA 30 hari</div>
+                        <div class="harga-item"><span class="ico ico-yes">✓</span> Revisi nama toko (1x gratis)</div>
+                    </div>
+                    <a href="https://landaiproject.github.io/pay" target="_blank" class="btn-order btn-order-wa"
+                        style="font-size:1rem;padding:16px">
+                        🔥 Claim Diskon Sekarang
+                    </a>
+                    <p style="font-size:0.72rem;color:var(--text-dim);margin-top:12px">💬 Konsultasi gratis sebelum
+                        order · ⚡ Proses 1–3 jam</p>
+                </div>
 
-<!-- ═══════════════════════════════════ DEMO VIDEO ═══════════════════════════════════ -->
-<section id="demo">
-    <div class="demo-inner">
-
-        <!-- Kiri: Phone Mockup + Video -->
-        <div class="demo-phone-wrap reveal">
-            <div class="demo-phone">
-                <div class="demo-phone-screen">
-                    <iframe
-                        src="https://www.youtube.com/embed/WY990Jrpx3s?rel=0&playsinline=1"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        title="Demo Web Member UMKM"
-                    ></iframe>
-                </div>
             </div>
-            <div class="demo-glow"></div>
         </div>
+    </section>
 
-        <!-- Kanan: Teks -->
-        <div>
-            <div class="sec-label reveal">✦ Demo Langsung</div>
-            <h2 class="sec-title reveal">Lihat Sendiri<br><span class="grad-text">Sistem Ini Bekerja</span></h2>
-            <p class="sec-desc reveal" style="margin-bottom:32px">Tonton video demo singkat — dari scan QR pelanggan, input poin, sampai tampilan dashboard admin di HP.</p>
-            <div class="demo-point reveal">
-                <div class="demo-point-icon">📷</div>
-                <div>
-                    <div class="demo-point-title">Scan QR Cuma 2 Detik</div>
-                    <div class="demo-point-desc">Admin buka kamera HP, scan kartu QR pelanggan, langsung muncul data member beserta saldo poin.</div>
+    <!-- ═══════════════════════════════════ TESTIMONI ═══════════════════════════════════ -->
+    <section id="testimoni" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ Testimoni</div>
+            <h2 class="sec-title reveal">Yang Mereka<br><span class="grad-text">Rasakan Sendiri</span></h2>
+            <div class="testi-grid">
+                <div class="testi-card reveal">
+                    <div class="testi-stars">★★★★★</div>
+                    <div class="testi-text">"Alhamdulillah setelah pakai sistem ini pelanggan jadi rajin balik lagi.
+                        Mereka semangat kejar poin buat dapet hadiah minyak goreng. Omzet bulanan naik lumayan!"</div>
+                    <div class="testi-profile">
+                        <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                alt="Ibu Inayah" loading="lazy"></div>
+                        <div>
+                            <div class="testi-name">Ibu Inayah</div>
+                            <div class="testi-toko">IPS Store — Fotocopy &amp; ATK</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal">
+                    <div class="testi-stars">★★★★★</div>
+                    <div class="testi-text">"Keren banget, ga perlu kartu fisik. Pelanggan cukup screenshot kartu di HP.
+                        Admin tinggal scan QR langsung muncul data member. Proses input poin cuma 2 detik!"</div>
+                    <div class="testi-profile">
+                        <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/men/41.jpg"
+                                alt="Pak Maulana" loading="lazy"></div>
+                        <div>
+                            <div class="testi-name">Pak Maulana</div>
+                            <div class="testi-toko">MS Jaya Cell — Counter HP</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal">
+                    <div class="testi-stars">★★★★★</div>
+                    <div class="testi-text">"Harga terjangkau, sistemnya profesional banget. Dipasang nama toko saya
+                        sendiri, data tersimpan di cloud yang bisa saya lihat kapan saja. Highly recommended!"</div>
+                    <div class="testi-profile">
+                        <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/56.jpg"
+                                alt="Ibu Rini Hartati" loading="lazy"></div>
+                        <div>
+                            <div class="testi-name">Ibu Rini Hartati</div>
+                            <div class="testi-toko">Warung Sembako Barokah</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="demo-point reveal">
-                <div class="demo-point-icon">📊</div>
-                <div>
-                    <div class="demo-point-title">Dashboard Real-Time di HP</div>
-                    <div class="demo-point-desc">Pantau total member, poin beredar, dan aktivitas transaksi hari ini langsung dari genggaman tangan.</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ FAQ ═══════════════════════════════════ -->
+    <section id="faq" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label reveal">✦ FAQ</div>
+            <h2 class="sec-title reveal">Pertanyaan yang<br><span class="amber-text">Sering Ditanyakan</span></h2>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Apakah ada biaya bulanan atau tahunan?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        <strong>Tidak ada.</strong> Sistem web member ini berjalan di infrastruktur cloud yang sudah
+                        gratis. Anda hanya bayar biaya jasa deploy sekali saja. Setelah itu, sistem berjalan gratis
+                        selamanya tanpa biaya tambahan apapun.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Butuh install aplikasi di HP?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        <strong>Tidak perlu install apapun.</strong> Web member langsung dibuka lewat browser HP
+                        (Chrome, Firefox, Safari) ataupun laptop. Scan QR Code menggunakan kamera HP biasa yang sudah
+                        ada. Cukup simpan link-nya sebagai shortcut di layar HP.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Berapa lama proses pengerjaannya?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        Pengerjaan biasanya selesai dalam <strong>1–3 jam</strong> setelah data toko dikirim dan
+                        pembayaran dikonfirmasi. Untuk paket custom yang membutuhkan kustomisasi lebih lanjut, bisa 1–2
+                        hari kerja.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Data pelanggan saya aman?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        <strong>100% aman dan milik Anda sendiri.</strong> Data tersimpan di sistem cloud pribadi Anda.
+                        Saya selaku penyedia jasa tidak memiliki akses ke data pelanggan toko Anda. Backup otomatis
+                        dilakukan secara berkala.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Bisa menampung berapa member?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        Secara teknis, sistem dapat menampung hingga <strong>ratusan ribu data member</strong>. Untuk
+                        skala UMKM (ratusan hingga ribuan member), lebih dari cukup dan sistem akan tetap berjalan cepat
+                        dan lancar.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Kalau ada error atau butuh bantuan, ada support-nya?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        Paket Pro dan Custom sudah termasuk <strong>support WhatsApp 30–60 hari</strong>. Untuk Paket
+                        Starter, saya tetap membantu sejauh kemampuan lewat WA. Sistem sudah stabil dan jarang ada
+                        masalah teknis.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">
+                        Bisa minta fitur tambahan atau custom tampilan?
+                        <span class="arr">▼</span>
+                    </div>
+                    <div class="faq-a">
+                        Bisa! Hubungi saya via WhatsApp untuk diskusi kebutuhan spesifik. Untuk kustomisasi besar (logo,
+                        warna, fitur baru) tersedia di <strong>Paket Custom</strong> dengan harga yang bisa disesuaikan.
+                    </div>
                 </div>
             </div>
-            <div class="demo-point reveal">
-                <div class="demo-point-icon">🎁</div>
-                <div>
-                    <div class="demo-point-title">Redeem Hadiah Mudah</div>
-                    <div class="demo-point-desc">Pelanggan pilih hadiah, admin konfirmasi — poin otomatis berkurang dan tercatat rapi di riwayat.</div>
-                </div>
-            </div>
-            <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20baru%20nonton%20videonya%20nih%2C%20keren%20banget!%20Saya%20mau%20yang%20sama%20untuk%20toko%20saya.%20Promonya%20masih%20Rp%20250.000%20kan%3F%20%F0%9F%99%8F" target="_blank" class="btn-primary btn-wa reveal" style="margin-top:8px;display:inline-flex">
-                <i class="fab fa-whatsapp"></i> Mau yang Sama? Chat Sekarang
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CTA FINAL ═══════════════════════════════════ -->
+    <section id="cta-final">
+        <h2 class="cta-title reveal">
+            Siap Bangun Loyalitas<br>
+            <span class="amber-text">Pelanggan Toko Anda?</span>
+        </h2>
+        <p class="cta-sub reveal">
+            Jangan biarkan pelanggan Anda pergi ke toko saingan.
+            Mulai program member poin digital sekarang — <strong>proses cepat, harga terjangkau, langsung jadi.</strong>
+        </p>
+        <div class="cta-btn-row reveal">
+            <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM%20nih.%20Harga%20promonya%20masih%20Rp%2099.000%20ya%3F%20Mau%20langsung%20ambil%20sebelum%20harga%20normal%20lagi!%20%F0%9F%99%8F"
+                target="_blank" class="btn-primary btn-wa btn-big">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
+            </a>
+            <a href="#harga" class="btn-secondary btn-big">
+                📋 Lihat Paket Harga
             </a>
         </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin-top:22px;position:relative">
+            💬 Respon cepat · ⚡ Proses 1–3 jam · ✅ Garansi sesuai spesifikasi
+        </p>
+    </section>
 
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════ FITUR ═══════════════════════════════════ -->
-<section id="fitur" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Fitur Unggulan</div>
-        <h2 class="sec-title reveal">Semua yang Toko Anda<br><span class="grad-text">Butuhkan, Sudah Termasuk</span></h2>
-        <p class="sec-desc reveal">Sistem member point digital lengkap — bukan sekedar aplikasi, tapi solusi loyalitas pelanggan yang sudah terbukti.</p>
-
-        <div class="fitur-grid">
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">📊</div>
-                <div class="fitur-title">Dashboard Admin Modern</div>
-                <div class="fitur-desc">Pantau statistik toko secara real-time langsung dari HP atau PC.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> Total member & poin beredar</li>
-                    <li><span class="chk">✓</span> Top 5 member teraktif</li>
-                    <li><span class="chk">✓</span> Aktivitas transaksi hari ini</li>
-                    <li><span class="chk">✓</span> Tampilan mobile-friendly</li>
-                </ul>
+    <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    🪙 MemberPoint Pro
+                    <span>Jasa Deploy Web Sistem Member &amp; Poin Digital untuk UMKM</span>
+                </div>
             </div>
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">📷</div>
-                <div class="fitur-title">Scan QR Code Member</div>
-                <div class="fitur-desc">Admin scan kartu QR pelanggan langsung dari kamera HP — cepat & akurat.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> Tidak perlu alat tambahan</li>
-                    <li><span class="chk">✓</span> Buka di browser HP biasa</li>
-                    <li><span class="chk">✓</span> Langsung muncul data member</li>
-                    <li><span class="chk">✓</span> Tanpa install aplikasi</li>
-                </ul>
-            </div>
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">🪙</div>
-                <div class="fitur-title">Sistem Poin Fleksibel</div>
-                <div class="fitur-desc">Tentukan sendiri berapa poin untuk tiap produk atau layanan toko Anda.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> Katalog poin per produk</li>
-                    <li><span class="chk">✓</span> Edit kapan saja dari dashboard</li>
-                    <li><span class="chk">✓</span> Riwayat poin masuk & keluar</li>
-                    <li><span class="chk">✓</span> Akumulasi total poin otomatis</li>
-                </ul>
-            </div>
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">🎁</div>
-                <div class="fitur-title">Redeem Hadiah</div>
-                <div class="fitur-desc">Pelanggan tukar poin yang terkumpul dengan hadiah pilihan toko.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> Daftar hadiah bisa diatur</li>
-                    <li><span class="chk">✓</span> Cek saldo poin real-time</li>
-                    <li><span class="chk">✓</span> Proses redeem 2 klik</li>
-                    <li><span class="chk">✓</span> Stok hadiah tidak terbatas</li>
-                </ul>
-            </div>
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">💳</div>
-                <div class="fitur-title">Kartu Member Digital</div>
-                <div class="fitur-desc">Setiap member punya kartu digital dengan QR unik yang bisa disimpan di HP.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> QR Code pribadi unik per member</li>
-                    <li><span class="chk">✓</span> Tampil nama, ID & saldo poin</li>
-                    <li><span class="chk">✓</span> Bisa screenshot & simpan di HP</li>
-                    <li><span class="chk">✓</span> Portal pelanggan mandiri</li>
-                </ul>
-            </div>
-            <div class="fitur-card reveal">
-                <div class="fitur-icon">📋</div>
-                <div class="fitur-title">Data Tersimpan Aman &amp; Rapi</div>
-                <div class="fitur-desc">Semua data tersimpan rapi di sistem cloud — aman &amp; mudah diakses kapan saja dari HP maupun laptop.</div>
-                <ul class="fitur-list">
-                    <li><span class="chk">✓</span> Data 100% milik Anda</li>
-                    <li><span class="chk">✓</span> Buka di HP / laptop</li>
-                    <li><span class="chk">✓</span> Export ke Excel kapan saja</li>
-                    <li><span class="chk">✓</span> Backup otomatis &amp; aman</li>
-                </ul>
+            <div class="footer-links">
+                <a href="#fitur">Fitur</a>
+                <a href="#cocok">Untuk Siapa</a>
+                <a href="#cara-kerja">Cara Kerja</a>
+                <a href="#harga">Harga</a>
+                <a href="#testimoni">Testimoni</a>
+                <a href="#faq">FAQ</a>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════ COCOK UNTUK ═══════════════════════════════════ -->
-<section id="cocok" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Cocok Untuk</div>
-        <h2 class="sec-title reveal">Semua Jenis<br><span class="amber-text">UMKM &amp; Toko</span></h2>
-        <p class="sec-desc reveal">Dari toko kecil sampai usaha berkembang — sistem ini dirancang untuk semua skala bisnis.</p>
-        <div class="bisnis-grid">
-            <div class="bisnis-card reveal">
-                <div class="b-icon">📱</div>
-                <div class="b-name">Counter HP / Cell</div>
-                <div class="b-desc">Pulsa, paket data, aksesoris &amp; service HP</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">🖨️</div>
-                <div class="b-name">Fotocopy &amp; Print</div>
-                <div class="b-desc">Percetakan, ATK &amp; perlengkapan kantor</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">🛒</div>
-                <div class="b-name">Minimarket / Warung</div>
-                <div class="b-desc">Sembako, minuman &amp; kebutuhan sehari-hari</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">💇</div>
-                <div class="b-name">Salon &amp; Barbershop</div>
-                <div class="b-desc">Potong rambut, perawatan &amp; kecantikan</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">🍕</div>
-                <div class="b-name">Warung Makan / Cafe</div>
-                <div class="b-desc">Makanan, minuman &amp; camilan</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">💊</div>
-                <div class="b-name">Apotek / Toko Obat</div>
-                <div class="b-desc">Obat, suplemen &amp; kebutuhan kesehatan</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">👗</div>
-                <div class="b-name">Toko Baju / Fashion</div>
-                <div class="b-desc">Pakaian, tas &amp; aksesoris fashion</div>
-            </div>
-            <div class="bisnis-card reveal">
-                <div class="b-icon">🔧</div>
-                <div class="b-name">Bengkel / Service</div>
-                <div class="b-desc">Servis kendaraan, elektronik &amp; peralatan</div>
-            </div>
+        <div class="footer-bottom">
+            <span>© 2026 MemberPoint Pro · Semua hak dilindungi.</span>
+            <span>Dibuat dengan ❤️ untuk UMKM Indonesia</span>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- ═══════════════════════════════════ PERBANDINGAN ═══════════════════════════════════ -->
-<section id="perbandingan" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Sebelum vs Sesudah</div>
-        <h2 class="sec-title reveal">Apa Bedanya<br><span class="grad-text">Punya Sistem Member?</span></h2>
-        <div class="ba-grid">
-            <div class="ba-card ba-before reveal">
-                <div class="ba-head"><span>❌</span> Tanpa Sistem Member</div>
-                <div class="ba-items">
-                    <div class="ba-i"><span>😞</span> Pelanggan beli sekali, tidak pernah balik lagi</div>
-                    <div class="ba-i"><span>📝</span> Kartu member fisik mudah hilang &amp; rusak</div>
-                    <div class="ba-i"><span>📒</span> Catat poin manual di buku — rawan salah &amp; lupa</div>
-                    <div class="ba-i"><span>❓</span> Tidak tahu siapa pelanggan paling setia</div>
-                    <div class="ba-i"><span>🎲</span> Program promo tidak terukur hasilnya</div>
-                    <div class="ba-i"><span>😤</span> Pelanggan mudah pindah ke toko saingan</div>
-                </div>
-            </div>
-            <div class="ba-card ba-after reveal">
-                <div class="ba-head"><span>✅</span> Dengan Web Member Poin Digital</div>
-                <div class="ba-items">
-                    <div class="ba-i"><span>🔄</span> Pelanggan terus balik karena kejar poin &amp; hadiah</div>
-                    <div class="ba-i"><span>📱</span> Kartu digital di HP — tidak pernah hilang</div>
-                    <div class="ba-i"><span>⚡</span> Input poin 2 detik via scan QR, otomatis tercatat</div>
-                    <div class="ba-i"><span>📊</span> Dashboard tampilkan top member &amp; statistik lengkap</div>
-                    <div class="ba-i"><span>🎁</span> Hadiah menarik bikin pelanggan semangat belanja lebih</div>
-                    <div class="ba-i"><span>💪</span> Loyalitas pelanggan meningkat, omzet tumbuh</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- ═══════════════════════════════════ FLOATING WA ═══════════════════════════════════ -->
+    <a id="float-wa"
+        href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Masih%20ada%20harga%20promo%20Rp%2099.000%20kan%3F%20Mau%20langsung%20order!%20%F0%9F%94%A5"
+        target="_blank" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<!-- ═══════════════════════════════════ CARA KERJA ═══════════════════════════════════ -->
-<section id="cara-kerja" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Proses Order</div>
-        <h2 class="sec-title reveal">Cara Kerja<br><span class="grad-text">Pemesanan Jasa</span></h2>
-        <p class="sec-desc reveal">Dari order sampai web member toko Anda siap, prosesnya cepat dan mudah.</p>
-        <div class="steps-wrap">
-            <div class="step-card reveal">
-                <div class="step-num">1</div>
-                <div class="step-body">
-                    <div class="s-title">💬 Hubungi via WhatsApp</div>
-                    <div class="s-desc">Chat saya via WA, ceritakan nama toko dan jenis usaha Anda. Konsultasi gratis!</div>
-                </div>
-            </div>
-            <div class="step-card reveal">
-                <div class="step-num">2</div>
-                <div class="step-body">
-                    <div class="s-title">📋 Kirim Data Toko</div>
-                    <div class="s-desc">Kirim nama toko, tagline, dan data awal yang dibutuhkan. Jika ada logo/foto, lampirkan juga.</div>
-                </div>
-            </div>
-            <div class="step-card reveal">
-                <div class="step-num">3</div>
-                <div class="step-body">
-                    <div class="s-title">💳 Konfirmasi &amp; Bayar</div>
-                    <div class="s-desc">Pilih paket yang sesuai, lakukan pembayaran ke rekening yang tersedia. Bisa transfer / QRIS.</div>
-                </div>
-            </div>
-            <div class="step-card reveal">
-                <div class="step-num">4</div>
-                <div class="step-body">
-                    <div class="s-title">⚙️ Proses Deploy</div>
-                    <div class="s-desc">Saya setup sistem web member khusus toko Anda, dikustomisasi sesuai nama &amp; jenis usaha.</div>
-                </div>
-            </div>
-            <div class="step-card reveal">
-                <div class="step-num">5</div>
-                <div class="step-body">
-                    <div class="s-title">🚀 Live &amp; Siap Pakai</div>
-                    <div class="s-desc">Anda terima URL web member yang langsung bisa dibuka di browser HP/laptop. Selesai dalam 1–3 jam!</div>
-                </div>
-            </div>
-            <div class="step-card reveal">
-                <div class="step-num">6</div>
-                <div class="step-body">
-                    <div class="s-title">📚 Panduan &amp; Support</div>
-                    <div class="s-desc">Saya berikan panduan lengkap cara pakai. Ada pertanyaan? Chat langsung lewat WA kapan saja.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- ═══════════════════════════════════ SCRIPTS ═══════════════════════════════════ -->
+    <script>
+        // ─── Slot Config Loader untuk Section Harga ───
+        (function () {
+            // Sama dengan SCRIPT_URL di pay/index.html — isi setelah deploy Apps Script
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmsF3nAYpLI9lG8NaVSBsEB7Q0Vto4Cl5qfpGTchzytVz1OZ9Y7t9OT8ptk2OVOhBFHg/exec';
 
-<!-- ═══════════════════════════════════ HARGA ═══════════════════════════════════ -->
-<section id="harga" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Harga</div>
-        <h2 class="sec-title reveal">Satu Harga,<br><span class="amber-text">Semua Sudah Termasuk</span></h2>
-        <p class="sec-desc reveal">Bayar sekali, sistem berjalan selamanya. Tidak ada biaya bulanan atau per-member.</p>
-        <div style="max-width:460px;margin:40px auto 0">
+            function formatRp(n) { return 'Rp ' + Number(n).toLocaleString('id-ID'); }
 
-            <!-- PAKET ALL-IN-ONE -->
-            <div class="harga-card featured reveal" style="text-align:center">
-                <div class="featured-badge">🔥 Promo Terbatas</div>
-                <div class="harga-tier" style="margin-top:8px">Paket Lengkap</div>
-                <div class="harga-name" style="font-size:1.5rem">Web Member UMKM</div>
-                <div class="harga-desc">Sistem member poin digital komplit — dashboard admin, kartu QR, redeem hadiah, poster promosi. Semua sudah termasuk.</div>
+            function applyIndexConfig(cfg) {
+                const slotSisa = Math.max(0, cfg.slot_total - cfg.slot_terpakai);
+                const promoOn = cfg.promo_aktif && slotSisa > 0;
+                const harga = promoOn ? cfg.harga_promo : cfg.harga_normal;
 
-                <!-- COUNTDOWN -->
-                <div class="countdown-wrap">
-                    <div class="countdown-label">⏰ Penawaran berakhir dalam</div>
-                    <div id="countdown-display" class="countdown-box">
-                        <div class="cd-seg">
-                            <div class="cd-num" id="cd-min">08</div>
-                            <div class="cd-lbl">Menit</div>
-                        </div>
-                        <div class="cd-colon">:</div>
-                        <div class="cd-seg">
-                            <div class="cd-num" id="cd-sec">00</div>
-                            <div class="cd-lbl">Detik</div>
-                        </div>
-                    </div>
-                </div>
+                const tampilEl = document.getElementById('idx-harga-tampil');
+                const coretEl = document.getElementById('idx-harga-coret');
+                const slotBadge = document.getElementById('idx-slot-badge');
+                const slotHabis = document.getElementById('idx-slot-habis');
+                const slotCount = document.getElementById('idx-slot-count');
 
-                <div class="harga-price" style="margin:16px 0 22px">
-                    <div class="coret" style="font-size:1rem">Rp 550.000</div>
-                    <div class="angka grad-text" style="font-size:clamp(2rem,8vw,3rem)">Rp 250.000</div>
-                    <div class="satuan">Bayar sekali · Pakai selamanya · Tanpa biaya bulanan</div>
-                </div>
-                <div class="harga-divider"></div>
-                <div class="harga-includes" style="text-align:left">
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Web member URL khusus nama toko Anda</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Dashboard admin modern (HP &amp; PC)</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Daftar &amp; kartu member QR digital</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Input poin via scan QR kamera HP</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> <strong>Katalog poin tidak terbatas</strong></div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> <strong>Daftar hadiah tidak terbatas</strong></div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Portal kartu pelanggan mandiri</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Poster mading A4 Landscape siap cetak</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Flyer promosi A4 Portrait siap cetak</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Panduan pemakaian lengkap</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Support WA 30 hari</div>
-                    <div class="harga-item"><span class="ico ico-yes">✓</span> Revisi nama toko (1x gratis)</div>
-                </div>
-                <a href="https://landaiproject.github.io/pay" target="_blank" class="btn-order btn-order-wa" style="font-size:1rem;padding:16px">
-                    🔥 Claim Diskon Sekarang
-                </a>
-                <p style="font-size:0.72rem;color:var(--text-dim);margin-top:12px">💬 Konsultasi gratis sebelum order · ⚡ Proses 1–3 jam</p>
-            </div>
+                if (tampilEl) tampilEl.textContent = formatRp(harga);
 
-        </div>
-    </div>
-</section>
+                if (promoOn) {
+                    if (coretEl) { coretEl.textContent = formatRp(cfg.harga_normal); coretEl.style.display = ''; }
+                    if (slotBadge) { slotBadge.style.display = 'flex'; }
+                    if (slotHabis) { slotHabis.style.display = 'none'; }
+                    if (slotCount) slotCount.textContent = slotSisa + ' SLOT TERSISA';
+                } else {
+                    if (coretEl) coretEl.style.display = 'none';
+                    if (slotBadge) slotBadge.style.display = 'none';
+                    if (slotHabis) slotHabis.style.display = (cfg.promo_aktif && slotSisa <= 0) ? 'flex' : 'none';
+                }
+            }
 
-<!-- ═══════════════════════════════════ TESTIMONI ═══════════════════════════════════ -->
-<section id="testimoni" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ Testimoni</div>
-        <h2 class="sec-title reveal">Yang Mereka<br><span class="grad-text">Rasakan Sendiri</span></h2>
-        <div class="testi-grid">
-            <div class="testi-card reveal">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-text">"Alhamdulillah setelah pakai sistem ini pelanggan jadi rajin balik lagi. Mereka semangat kejar poin buat dapet hadiah minyak goreng. Omzet bulanan naik lumayan!"</div>
-                <div class="testi-profile">
-                    <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ibu Inayah" loading="lazy"></div>
-                    <div>
-                        <div class="testi-name">Ibu Inayah</div>
-                        <div class="testi-toko">IPS Store — Fotocopy &amp; ATK</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testi-card reveal">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-text">"Keren banget, ga perlu kartu fisik. Pelanggan cukup screenshot kartu di HP. Admin tinggal scan QR langsung muncul data member. Proses input poin cuma 2 detik!"</div>
-                <div class="testi-profile">
-                    <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Pak Maulana" loading="lazy"></div>
-                    <div>
-                        <div class="testi-name">Pak Maulana</div>
-                        <div class="testi-toko">MS Jaya Cell — Counter HP</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testi-card reveal">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-text">"Harga terjangkau, sistemnya profesional banget. Dipasang nama toko saya sendiri, data tersimpan di cloud yang bisa saya lihat kapan saja. Highly recommended!"</div>
-                <div class="testi-profile">
-                    <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Ibu Rini Hartati" loading="lazy"></div>
-                    <div>
-                        <div class="testi-name">Ibu Rini Hartati</div>
-                        <div class="testi-toko">Warung Sembako Barokah</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            if (SCRIPT_URL) {
+                fetch(SCRIPT_URL + '?action=getConfig')
+                    .then(r => r.json())
+                    .then(applyIndexConfig)
+                    .catch(() => { });
+            }
+        })();
 
-<!-- ═══════════════════════════════════ FAQ ═══════════════════════════════════ -->
-<section id="faq" class="sec">
-    <div class="sec-inner">
-        <div class="sec-label reveal">✦ FAQ</div>
-        <h2 class="sec-title reveal">Pertanyaan yang<br><span class="amber-text">Sering Ditanyakan</span></h2>
-        <div class="faq-list">
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Apakah ada biaya bulanan atau tahunan?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    <strong>Tidak ada.</strong> Sistem web member ini berjalan di infrastruktur cloud yang sudah gratis. Anda hanya bayar biaya jasa deploy sekali saja. Setelah itu, sistem berjalan gratis selamanya tanpa biaya tambahan apapun.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Butuh install aplikasi di HP?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    <strong>Tidak perlu install apapun.</strong> Web member langsung dibuka lewat browser HP (Chrome, Firefox, Safari) ataupun laptop. Scan QR Code menggunakan kamera HP biasa yang sudah ada. Cukup simpan link-nya sebagai shortcut di layar HP.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Berapa lama proses pengerjaannya?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    Pengerjaan biasanya selesai dalam <strong>1–3 jam</strong> setelah data toko dikirim dan pembayaran dikonfirmasi. Untuk paket custom yang membutuhkan kustomisasi lebih lanjut, bisa 1–2 hari kerja.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Data pelanggan saya aman?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    <strong>100% aman dan milik Anda sendiri.</strong> Data tersimpan di sistem cloud pribadi Anda. Saya selaku penyedia jasa tidak memiliki akses ke data pelanggan toko Anda. Backup otomatis dilakukan secara berkala.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Bisa menampung berapa member?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    Secara teknis, sistem dapat menampung hingga <strong>ratusan ribu data member</strong>. Untuk skala UMKM (ratusan hingga ribuan member), lebih dari cukup dan sistem akan tetap berjalan cepat dan lancar.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Kalau ada error atau butuh bantuan, ada support-nya?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    Paket Pro dan Custom sudah termasuk <strong>support WhatsApp 30–60 hari</strong>. Untuk Paket Starter, saya tetap membantu sejauh kemampuan lewat WA. Sistem sudah stabil dan jarang ada masalah teknis.
-                </div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-q">
-                    Bisa minta fitur tambahan atau custom tampilan?
-                    <span class="arr">▼</span>
-                </div>
-                <div class="faq-a">
-                    Bisa! Hubungi saya via WhatsApp untuk diskusi kebutuhan spesifik. Untuk kustomisasi besar (logo, warna, fitur baru) tersedia di <strong>Paket Custom</strong> dengan harga yang bisa disesuaikan.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        // ─── Countdown Timer (persistent via localStorage) ───
+        (function () {
+            const DURATION = 8 * 60; // 8 menit dalam detik
+            const KEY = 'promo_end_time';
+            const now = Date.now();
+            let endTime = parseInt(localStorage.getItem(KEY) || '0');
 
-<!-- ═══════════════════════════════════ CTA FINAL ═══════════════════════════════════ -->
-<section id="cta-final">
-    <h2 class="cta-title reveal">
-        Siap Bangun Loyalitas<br>
-        <span class="amber-text">Pelanggan Toko Anda?</span>
-    </h2>
-    <p class="cta-sub reveal">
-        Jangan biarkan pelanggan Anda pergi ke toko saingan. 
-        Mulai program member poin digital sekarang — <strong>proses cepat, harga terjangkau, langsung jadi.</strong>
-    </p>
-    <div class="cta-btn-row reveal">
-        <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM%20nih.%20Harga%20promonya%20masih%20Rp%20250.000%20ya%3F%20Mau%20langsung%20ambil%20sebelum%20harga%20normal%20lagi!%20%F0%9F%99%8F" target="_blank" class="btn-primary btn-wa btn-big">
-            <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
-        </a>
-        <a href="#harga" class="btn-secondary btn-big">
-            📋 Lihat Paket Harga
-        </a>
-    </div>
-    <p style="font-size:0.75rem;color:var(--text-dim);margin-top:22px;position:relative">
-        💬 Respon cepat · ⚡ Proses 1–3 jam · ✅ Garansi sesuai spesifikasi
-    </p>
-</section>
-
-<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
-<footer>
-    <div class="footer-inner">
-        <div>
-            <div class="footer-brand">
-                🪙 MemberPoint Pro
-                <span>Jasa Deploy Web Sistem Member &amp; Poin Digital untuk UMKM</span>
-            </div>
-        </div>
-        <div class="footer-links">
-            <a href="#fitur">Fitur</a>
-            <a href="#cocok">Untuk Siapa</a>
-            <a href="#cara-kerja">Cara Kerja</a>
-            <a href="#harga">Harga</a>
-            <a href="#testimoni">Testimoni</a>
-            <a href="#faq">FAQ</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2026 MemberPoint Pro · Semua hak dilindungi.</span>
-        <span>Dibuat dengan ❤️ untuk UMKM Indonesia</span>
-    </div>
-</footer>
-
-<!-- ═══════════════════════════════════ FLOATING WA ═══════════════════════════════════ -->
-<a id="float-wa" href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Masih%20ada%20harga%20promo%20Rp%20250.000%20kan%3F%20Mau%20langsung%20order!%20%F0%9F%94%A5" target="_blank" title="Chat WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- ═══════════════════════════════════ SCRIPTS ═══════════════════════════════════ -->
-<script>
-    // ─── Countdown Timer (persistent via localStorage) ───
-    (function() {
-        const DURATION = 8 * 60; // 8 menit dalam detik
-        const KEY = 'promo_end_time';
-        const now = Date.now();
-        let endTime = parseInt(localStorage.getItem(KEY) || '0');
-
-        // Jika belum ada atau sudah habis, set ulang timer
-        if (!endTime || endTime <= now) {
-            endTime = now + DURATION * 1000;
-            localStorage.setItem(KEY, endTime);
-        }
-
-        const minEl = document.getElementById('cd-min');
-        const secEl = document.getElementById('cd-sec');
-        const display = document.getElementById('countdown-display');
-
-        function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-        function tick() {
-            const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-            const m = Math.floor(remaining / 60);
-            const s = remaining % 60;
-            minEl.textContent = pad(m);
-            secEl.textContent = pad(s);
-
-            if (remaining <= 0) {
-                clearInterval(timer);
-                // Reset otomatis: mulai lagi 8 menit
-                endTime = Date.now() + DURATION * 1000;
+            // Jika belum ada atau sudah habis, set ulang timer
+            if (!endTime || endTime <= now) {
+                endTime = now + DURATION * 1000;
                 localStorage.setItem(KEY, endTime);
-                tick();
             }
+
+            const minEl = document.getElementById('cd-min');
+            const secEl = document.getElementById('cd-sec');
+            const display = document.getElementById('countdown-display');
+
+            function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+            function tick() {
+                const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+                const m = Math.floor(remaining / 60);
+                const s = remaining % 60;
+                minEl.textContent = pad(m);
+                secEl.textContent = pad(s);
+
+                if (remaining <= 0) {
+                    clearInterval(timer);
+                    // Reset otomatis: mulai lagi 8 menit
+                    endTime = Date.now() + DURATION * 1000;
+                    localStorage.setItem(KEY, endTime);
+                    tick();
+                }
+            }
+
+            tick();
+            var timer = setInterval(tick, 1000);
+        })();
+
+        // ─── Scroll Reveal ───
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger delay berdasarkan posisi di grup
+                    const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+                    const idx = siblings.indexOf(entry.target);
+                    entry.target.style.transitionDelay = (idx * 60) + 'ms';
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        // ─── FAQ Accordion ───
+        document.querySelectorAll('.faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+                // Tutup semua
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                // Toggle yang diklik
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // ─── Topbar scroll effect ───
+        const topbar = document.getElementById('topbar');
+        window.addEventListener('scroll', () => {
+            topbar.style.background = window.scrollY > 50
+                ? 'rgba(6,11,24,0.97)'
+                : 'rgba(6,11,24,0.88)';
+        }, { passive: true });
+
+        // ─── Animasi counter trust bar ───
+        function animateCount(el, target, suffix, duration) {
+            let start = 0;
+            const isFloat = target % 1 !== 0;
+            const step = duration / 60;
+            const timer = setInterval(() => {
+                start += target / (duration / step);
+                if (start >= target) { start = target; clearInterval(timer); }
+                el.textContent = (isFloat ? start.toFixed(1) : Math.floor(start)) + suffix;
+            }, step);
         }
 
-        tick();
-        var timer = setInterval(tick, 1000);
-    })();
-
-    // ─── Scroll Reveal ───
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                // Stagger delay berdasarkan posisi di grup
-                const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
-                const idx = siblings.indexOf(entry.target);
-                entry.target.style.transitionDelay = (idx * 60) + 'ms';
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
-
-    // ─── FAQ Accordion ───
-    document.querySelectorAll('.faq-q').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            const isOpen = item.classList.contains('open');
-            // Tutup semua
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            // Toggle yang diklik
-            if (!isOpen) item.classList.add('open');
-        });
-    });
-
-    // ─── Topbar scroll effect ───
-    const topbar = document.getElementById('topbar');
-    window.addEventListener('scroll', () => {
-        topbar.style.background = window.scrollY > 50
-            ? 'rgba(6,11,24,0.97)'
-            : 'rgba(6,11,24,0.88)';
-    }, { passive: true });
-
-    // ─── Animasi counter trust bar ───
-    function animateCount(el, target, suffix, duration) {
-        let start = 0;
-        const isFloat = target % 1 !== 0;
-        const step = duration / 60;
-        const timer = setInterval(() => {
-            start += target / (duration / step);
-            if (start >= target) { start = target; clearInterval(timer); }
-            el.textContent = (isFloat ? start.toFixed(1) : Math.floor(start)) + suffix;
-        }, step);
-    }
-
-    const trustObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const items = document.querySelectorAll('.trust-val');
-                // Hanya trigger counter animasi untuk item yang punya angka
-                trustObs.disconnect();
-            }
-        });
-    }, { threshold: 0.5 });
-    const trustSec = document.getElementById('trust');
-    if (trustSec) trustObs.observe(trustSec);
-</script>
+        const trustObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = document.querySelectorAll('.trust-val');
+                    // Hanya trigger counter animasi untuk item yang punya angka
+                    trustObs.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+        const trustSec = document.getElementById('trust');
+        if (trustSec) trustObs.observe(trustSec);
+    </script>
 </body>
+
 </html>
