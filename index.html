@@ -1581,7 +1581,7 @@
             <a href="#harga">Harga</a>
             <a href="#faq">FAQ</a>
             <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%2099.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5"
-                target="_blank" class="btn-nav-cta">💬 Order Sekarang</a>
+                target="_blank" class="btn-nav-cta" data-wa="order">💬 Order Sekarang</a>
         </div>
     </nav>
 
@@ -1607,7 +1607,7 @@
                 </p>
                 <div class="hero-cta-row">
                     <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Saya%20lihat%20masih%20ada%20harga%20promo%20Rp%2099.000%20(normalnya%20Rp%20550.000)%2C%20mau%20langsung%20ambil%20sebelum%20promonya%20habis!%20%F0%9F%94%A5"
-                        target="_blank" class="btn-primary btn-wa">
+                        target="_blank" class="btn-primary btn-wa" data-wa="order">
                         <i class="fab fa-whatsapp"></i> Chat &amp; Order Sekarang
                     </a>
                     <a href="#fitur" class="btn-secondary">
@@ -1766,7 +1766,7 @@
                 </div>
                 <div class="btn-wa-wrap">
                     <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20baru%20nonton%20videonya%20nih%2C%20keren%20banget!%20Saya%20mau%20yang%20sama%20untuk%20toko%20saya.%20Promonya%20masih%20Rp%2099.000%20kan%3F%20%F0%9F%99%8F"
-                        target="_blank" class="btn-primary btn-wa reveal" style="display:inline-flex">
+                        target="_blank" class="btn-primary btn-wa reveal" style="display:inline-flex" data-wa="demo">
                         <i class="fab fa-whatsapp"></i> Mau yang Sama? Chat Sekarang
                     </a>
                 </div>
@@ -2251,7 +2251,7 @@
         </p>
         <div class="cta-btn-row reveal">
             <a href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM%20nih.%20Harga%20promonya%20masih%20Rp%2099.000%20ya%3F%20Mau%20langsung%20ambil%20sebelum%20harga%20normal%20lagi!%20%F0%9F%99%8F"
-                target="_blank" class="btn-primary btn-wa btn-big">
+                target="_blank" class="btn-primary btn-wa btn-big" data-wa="cta">
                 <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
             </a>
             <a href="#harga" class="btn-secondary btn-big">
@@ -2290,7 +2290,7 @@
     <!-- ═══════════════════════════════════ FLOATING WA ═══════════════════════════════════ -->
     <a id="float-wa"
         href="https://wa.me/6285368859576?text=Halo%20kak%2C%20saya%20mau%20order%20Web%20Member%20UMKM.%20Masih%20ada%20harga%20promo%20Rp%2099.000%20kan%3F%20Mau%20langsung%20order!%20%F0%9F%94%A5"
-        target="_blank" title="Chat WhatsApp">
+        target="_blank" title="Chat WhatsApp" data-wa="float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2326,6 +2326,33 @@
                     if (slotBadge) slotBadge.style.display = 'none';
                     if (slotHabis) slotHabis.style.display = (cfg.promo_aktif && slotSisa <= 0) ? 'flex' : 'none';
                 }
+
+                // ─── Update semua WA link agar harga sinkron ───
+                const phone = '6285368859576';
+                const rp = formatRp(harga);
+                const rpNormal = formatRp(cfg.harga_normal);
+
+                const msgs = {
+                    order: promoOn
+                        ? 'Halo kak, saya mau order Web Member UMKM. Saya lihat masih ada harga promo ' + rp + ' (normalnya ' + rpNormal + '), mau langsung ambil sebelum promonya habis! 🔥'
+                        : 'Halo kak, saya mau order Web Member UMKM. Harga normalnya ' + rp + ', mau langsung ambil! 🔥',
+                    demo: promoOn
+                        ? 'Halo kak, baru nonton videonya nih, keren banget! Saya mau yang sama untuk toko saya. Promonya masih ' + rp + ' kan? 🙏'
+                        : 'Halo kak, baru nonton videonya nih, keren banget! Saya mau yang sama untuk toko saya. Harganya ' + rp + ' ya? 🙏',
+                    cta: promoOn
+                        ? 'Halo kak, saya mau order Web Member UMKM nih. Harga promonya masih ' + rp + ' ya? Mau langsung ambil sebelum harga normal lagi! 🙏'
+                        : 'Halo kak, saya mau order Web Member UMKM nih. Harga normalnya ' + rp + ', mau langsung ambil! 🙏',
+                    float: promoOn
+                        ? 'Halo kak, saya mau order Web Member UMKM. Masih ada harga promo ' + rp + ' kan? Mau langsung order! 🔥'
+                        : 'Halo kak, saya mau order Web Member UMKM. Harganya ' + rp + ' ya? Mau langsung order! 🔥'
+                };
+
+                document.querySelectorAll('a[data-wa]').forEach(function (el) {
+                    const type = el.getAttribute('data-wa');
+                    if (msgs[type]) {
+                        el.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msgs[type]);
+                    }
+                });
             }
 
             if (SCRIPT_URL) {
