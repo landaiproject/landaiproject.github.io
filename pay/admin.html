@@ -730,6 +730,72 @@
                         <button class="btn btn-green" onclick="saveConfig()" style="flex:1">💾 Simpan Perubahan</button>
                     </div>
                 </div>
+
+                <!-- ── FORM PAKET PRO ── -->
+                <div class="card" style="margin-top:18px;border-color:rgba(245,158,11,0.35);background:rgba(245,158,11,0.04)">
+                    <div class="card-title" style="color:#f59e0b">⭐ Pengaturan Paket Pro</div>
+
+                    <!-- Toggle Promo Pro -->
+                    <div class="toggle-wrap">
+                        <div>
+                            <div class="toggle-label">Promo Pro Aktif</div>
+                            <div class="toggle-desc">Tampilkan harga promo Paket Pro di halaman publik</div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" id="promo-pro-aktif">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Harga Normal Pro -->
+                    <div class="input-group" style="margin-bottom:14px">
+                        <label>Harga Normal Pro</label>
+                        <div class="num-input-wrap">
+                            <span class="prefix">Rp</span>
+                            <input type="number" id="harga-pro-normal" value="1500000" min="0" step="1000">
+                        </div>
+                    </div>
+
+                    <!-- Harga Promo Pro -->
+                    <div class="input-group" style="margin-bottom:14px">
+                        <label>Harga Promo Pro</label>
+                        <div class="num-input-wrap">
+                            <span class="prefix">Rp</span>
+                            <input type="number" id="harga-pro-promo" value="990000" min="0" step="1000">
+                        </div>
+                    </div>
+
+                    <div class="section-sep"></div>
+                    <div class="card-title" style="color:#f59e0b">🎟️ Slot Paket Pro</div>
+
+                    <!-- Total Slot Pro -->
+                    <div class="input-group" style="margin-bottom:14px">
+                        <label>Total Slot Promo Pro</label>
+                        <div class="num-input-wrap">
+                            <input type="number" id="slot-pro-total" value="5" min="1" step="1">
+                            <span class="prefix">slot</span>
+                        </div>
+                    </div>
+
+                    <!-- Slot Terpakai Pro -->
+                    <div class="input-group">
+                        <label>Slot Terpakai Pro (sudah terjual)</label>
+                        <div class="num-input-wrap">
+                            <input type="number" id="slot-pro-terpakai" value="0" min="0" step="1">
+                            <span class="prefix">slot</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Reset Slot Pro -->
+                    <div style="margin-top:14px">
+                        <button class="btn btn-red" onclick="resetSlotPro()">🔄 Reset Slot Pro ke 0</button>
+                    </div>
+
+                    <!-- Tombol Simpan Pro -->
+                    <div class="save-btn-row">
+                        <button class="btn btn-green" onclick="saveConfig()" style="flex:1;background:linear-gradient(135deg,#f59e0b,#f97316);border:none">💾 Simpan Semua Perubahan</button>
+                    </div>
+                </div>
             </div>
 
             <!-- ── KANAN: PREVIEW & INFO ── -->
@@ -845,12 +911,25 @@
             document.getElementById('harga-promo').value = data.harga_promo;
             document.getElementById('slot-total').value = data.slot_total;
             document.getElementById('slot-terpakai').value = data.slot_terpakai;
+            // Pro
+            if (data.harga_pro_normal) {
+                document.getElementById('promo-pro-aktif').checked = data.promo_pro_aktif || false;
+                document.getElementById('harga-pro-normal').value = data.harga_pro_normal;
+                document.getElementById('harga-pro-promo').value = data.harga_pro_promo || 990000;
+                document.getElementById('slot-pro-total').value = data.slot_pro_total || 5;
+                document.getElementById('slot-pro-terpakai').value = data.slot_pro_terpakai || 0;
+            }
         }
 
         // ── RESET SLOT ────────────────────────────────────────────────────────
         function resetSlot() {
             document.getElementById('slot-terpakai').value = 0;
             updatePreview();
+        }
+
+        // ── RESET SLOT PRO ────────────────────────────────────────────────────
+        function resetSlotPro() {
+            document.getElementById('slot-pro-terpakai').value = 0;
         }
 
         // ── UPDATE PREVIEW REAL-TIME ─────────────────────────────────────────
@@ -951,7 +1030,13 @@
                 harga_promo: document.getElementById('harga-promo').value,
                 slot_total: document.getElementById('slot-total').value,
                 slot_terpakai: document.getElementById('slot-terpakai').value,
-                promo_aktif: document.getElementById('promo-aktif').checked ? 'true' : 'false'
+                promo_aktif: document.getElementById('promo-aktif').checked ? 'true' : 'false',
+                // Paket Pro
+                harga_pro_normal: document.getElementById('harga-pro-normal').value,
+                harga_pro_promo: document.getElementById('harga-pro-promo').value,
+                slot_pro_total: document.getElementById('slot-pro-total').value,
+                slot_pro_terpakai: document.getElementById('slot-pro-terpakai').value,
+                promo_pro_aktif: document.getElementById('promo-pro-aktif').checked ? 'true' : 'false'
             });
 
             try {
